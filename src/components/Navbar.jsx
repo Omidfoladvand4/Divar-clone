@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { citiesData } from '../services/citiesData'
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -8,6 +9,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SupportOutlinedIcon from "@mui/icons-material/SupportOutlined";
+import LocationSelectorBox from "./LocationSelectorBox";
 const NavbarWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -19,7 +21,7 @@ const NavbarWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 10;
 `;
 const NavTitle = styled.div``;
 const LinkItem = styled(Link)`
@@ -81,13 +83,16 @@ const AddPostBtn = styled.div`
 `;
 
 function Navbar() {
+    const [isOpenSelectLoc , setIsopenSelectLoc] = useState(false)
+    const [cityData , setCityData] = useState(citiesData)
   return (
+    <>
     <NavbarWrapper>
       <NavTitle>
         <LinkItem to={"/"}>دیوار</LinkItem>
       </NavTitle>
       <NavCityFilter>
-        <LocIcon >
+        <LocIcon onClick={() => setIsopenSelectLoc(open => !open)}>
           <RoomOutlinedIcon />
           <CurrentLocation>کل ایران</CurrentLocation>
         </LocIcon>
@@ -116,6 +121,8 @@ function Navbar() {
       </NavHelp>
       <AddPostBtn>ثبت آگهی</AddPostBtn>
     </NavbarWrapper>
+      <LocationSelectorBox isOpen={isOpenSelectLoc} setIsOpen={setIsopenSelectLoc} CityList={cityData} setCityList={setCityData}/>
+    </>
   );
 }
 
