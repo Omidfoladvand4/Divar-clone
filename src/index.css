@@ -4,7 +4,7 @@
   --color-secondary: #3F3F3F;
   --color-accent: #D83939;
   --color-info: #E3E3E3;
-  --color-subtitle: #607D8B;
+  --color-subtitle: #6d767a;
   
   --text-xs: clamp(11px, 3vw, 14px);
   --text-sm: clamp(13px, 3.5vw, 16px);
@@ -27,14 +27,23 @@
   --line-height-loose: 1.8;
 }
 
-
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing:border-box;
+  text-decoration: none;
+  font-family: 'Vazirmatn', 'Iran Sans', 'Tahoma', 'Segoe UI', sans-serif;
+}
 
 body {
+  width: 100vw;
   margin: 0;
   background-color: var(--color-primary);
-  font-size: var(--text-4xl);
+  color: var(--color-info);
+  font-size: var(--text-base);
   font-weight: 500;
-   font-family: 'Vazirmatn', 'Iran Sans', 'Tahoma', 'Segoe UI', sans-serif;
 }
 
 
