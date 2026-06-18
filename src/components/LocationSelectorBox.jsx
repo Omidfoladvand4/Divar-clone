@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -189,7 +189,7 @@ font-size: var(--text-base);
 transition : all .3s ease ; 
 
 `;
-function LocationSelectorBox({ isOpen, setIsOpen, CityList, setCityList  , selected , setSelected}) {
+function LocationSelectorBox({ isOpen, setIsOpen, CityList  , selected , setSelected}) {
     const {city , setCity} = useCity()
     const [inputFocus , setInputFocus] = useState(false)
     const [inputValue , setInputValue] = useState('')
@@ -269,7 +269,7 @@ const ChangeCityHandler = () => {
               </SelectLocationItem>
                :  <SelectedListWrapper>
                     {selected.map((item) => (
-                        <SelectedCityItem>{item} <CloseOutlinedIcon onClick={() => userSelectCityHandler(item)}/> </SelectedCityItem>
+                        <SelectedCityItem key={item}>{item} <CloseOutlinedIcon onClick={() => userSelectCityHandler(item)}/> </SelectedCityItem>
                     ))}
                </SelectedListWrapper>
                }
