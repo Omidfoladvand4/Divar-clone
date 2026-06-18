@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useNavigate, useParams } from "react-router-dom";
 const LocationWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   width: 600px;
-  height: 95vh;
+  height: 100vh;
   margin: 0 auto;
   padding: 10px 24px;
   background: var(--color-secondary);
-  top: 20px;
+  box-shadow: 0px 0px 16px var(--color-subtitle) ,
+   0px 0px 24px var(--color-info);
+
+  top: 0;
   z-index: 9999;
   animation: animate 0.5s ease;
   @keyframes animate {
@@ -22,7 +26,12 @@ const LocationWrapper = styled.div`
       transform: translate(0, 0);
     }
   }
+  @media (max-width: 480px) {
+      width: 100vw;
+      padding: 0 10px;
+  }
 `;
+
 const Div = styled.div`
   width: 100%;
   height: 80vh;
@@ -30,6 +39,15 @@ const Div = styled.div`
   justify-content: center;
   overflow: hidden;
 `;
+const OverLay = styled.div`
+width: 100vw;
+height: 100vh;
+background:  rgba(0,0,0,0.9);
+opacity: .5;
+position: fixed;
+top: 0;
+transition: all 0.3s ease;
+`
 const SelectLocationHeader = styled.div`
   width: 100%;
   height: 28%;
@@ -174,6 +192,7 @@ function LocationSelectorBox({ isOpen, setIsOpen, CityList, setCityList  , selec
     const [inputFocus , setInputFocus] = useState(false)
     const [inputValue , setInputValue] = useState('')
     const [filteredProvinces, setFilteredProvinces] = useState([]);
+    const navigate = useNavigate()
     function userSelectCityHandler(city) {
       
         setSelected(prevSelected => {
@@ -209,9 +228,14 @@ const cancelHandler = () => {
     setInputValue('')
     setSelected([])
 }
+const ChangeCityHandler = () => {
+     setIsOpen(false)
+     navigate(`/s/${selected}`)
+    
+}
   return (
     <Div>
-
+       <OverLay style={{display : isOpen ? 'block' : 'none'}} onClick={() => setIsOpen(open => !open)}/>
       {isOpen ? (
         <LocationWrapper>
           <SelectLocationHeader>
@@ -271,7 +295,8 @@ const cancelHandler = () => {
               انصراف
             </LocationAccentBtn>
             <LocationCancelBtn 
-             disabled={selected.length === 0}
+            onClick={ChangeCityHandler}
+    disabled={selected.length === 0}
   style={{
      opacity: selected.length === 0 ? 0.5 : 1,
       cursor: selected.length === 0 ? 'not-allowed' : 'pointer',

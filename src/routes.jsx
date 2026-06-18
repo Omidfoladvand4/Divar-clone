@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/s/:City" element={<Home />} />
       <Route path="/Category/:id" element={<Category />} />
       <Route path="/New" element={<New />} />
       <Route path="/Visit" element={<Visit />} />

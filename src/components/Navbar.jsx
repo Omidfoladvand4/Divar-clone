@@ -10,6 +10,7 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SupportOutlinedIcon from "@mui/icons-material/SupportOutlined";
 import LocationSelectorBox from "./LocationSelectorBox";
+import MobileNavbar from "./MobileNavbar";
 const NavbarWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -22,12 +23,21 @@ const NavbarWrapper = styled.div`
   top: 0;
   left: 0;
   z-index: 10;
+  @media (max-width: 480px) {
+     flex-direction: column-reverse;
+     background: var(--color-primary);
+     padding: 0;
+
+  }
 `;
 const NavTitle = styled.div``;
 const LinkItem = styled(Link)`
   color: var(--color-accent);
   font-weight: var(--font-bold);
   font-size: var(--text-xl);
+  @media (max-width: 480px) {
+     display: none;
+  }
 `;
 const NavItem = styled.div`
   display: flex;
@@ -44,10 +54,31 @@ const NavItem = styled.div`
     background: var(--color-secondary);
     opacity: 1;
   }
+    @media (max-width: 480px) {
+     display: none;
+  }
 `;
-const NavCityFilter = styled.div``;
-const LocIcon = styled(NavItem)``;
-const CurrentLocation = styled.div``;
+const NavCityFilter = styled.div`
+  display: block;
+`;
+const LocIcon = styled.div`
+   display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  opacity: 0.65;
+  color: var(--color-info);
+  transition: all 0.3s ease;
+  padding: 12px 8px;
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  &:hover {
+    background: var(--color-secondary);
+    opacity: 1;
+  }
+`;
+const CurrentLocation = styled.div`
+`;
 const NavCategoryFilter = styled(NavItem)``;
 const CategoryItem = styled.div``;
 const NavSearchBox = styled.div`
@@ -57,6 +88,9 @@ const NavSearchBox = styled.div`
   padding: 0 12px;
   background: var(--color-secondary);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  @media (max-width: 480px) {
+     width: 100vw;
+  }
 `;
 const NavSearchBoxInput = styled.input`
   width: 95%;
@@ -79,6 +113,9 @@ const AddPostBtn = styled.div`
   border-radius: 4px;
   padding: 10px 16px;
   cursor: pointer;
+    @media (max-width: 480px) {
+     display: none;
+  }
 `;
 
 function Navbar() {
@@ -137,6 +174,7 @@ function Navbar() {
         selected={selectedCity}
         setSelected={setSelectedCity}
       />
+      <MobileNavbar />
     </>
   );
 }
