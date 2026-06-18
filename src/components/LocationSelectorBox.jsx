@@ -150,21 +150,25 @@ const LocationFooterBtns = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
-`;
-const LocationAccentBtn = styled.div`
+  `;
+const LocationAccentBtn = styled.button`
   width: 40%;
   background-color: transparent;
   cursor: pointer;
   padding: 8px 16px;
   border: 1px solid var(--color-info);
-  font-size: var(--text-lg);
+  color: var(--color-info);
+font-size: var(--text-base);
+
 `;
-const LocationCancelBtn = styled.div`
+const LocationCancelBtn = styled.button`
   width: 40%;
-  background-color: var(--color-accent);
+  color: var(--color-info);
   cursor: pointer;
   padding: 8px 16px;
-  font-size: var(--text-lg);
+font-size: var(--text-base);
+transition : all .3s ease ; 
+
 `;
 function LocationSelectorBox({ isOpen, setIsOpen, CityList, setCityList  , selected , setSelected}) {
     const [inputFocus , setInputFocus] = useState(false)
@@ -266,7 +270,14 @@ const cancelHandler = () => {
             <LocationAccentBtn onClick={cancelHandler}>
               انصراف
             </LocationAccentBtn>
-            <LocationCancelBtn>تایید</LocationCancelBtn>
+            <LocationCancelBtn 
+             disabled={selected.length === 0}
+  style={{
+     opacity: selected.length === 0 ? 0.5 : 1,
+      cursor: selected.length === 0 ? 'not-allowed' : 'pointer',
+      background:selected.length === 0 ? 'var(--color-primary)' : 'var(--color-accent)',
+  }}
+            >تایید</LocationCancelBtn>
           </LocationFooterBtns>
         </LocationWrapper>
       ) : (
