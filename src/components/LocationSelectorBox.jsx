@@ -4,6 +4,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useNavigate } from "react-router-dom";
 import { useCity } from "../context/Cities";
+import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
   position: fixed;
   width: 600px;
@@ -40,15 +41,7 @@ const Div = styled.div`
   justify-content: center;
   overflow: hidden;
 `;
-const OverLay = styled.div`
-width: 100vw;
-height: 100vh;
-background:  rgba(0,0,0,0.9);
-opacity: .5;
-position: fixed;
-top: 0;
-transition: all 0.3s ease;
-`
+
 const SelectLocationHeader = styled.div`
   width: 100%;
   height: 28%;
@@ -236,12 +229,12 @@ const ChangeCityHandler = () => {
      setCity([...selected])
      console.log('cities in context ' , city);
      
-     navigate(`/s/${selected}`)
+     navigate(`/${selected}`)
     
 }
   return (
     <Div>
-       <OverLay style={{display : isOpen ? 'block' : 'none'}} onClick={() => setIsOpen(open => !open)}/>
+        <Overlay isOpen={isOpen} setIsOpen={setIsOpen}/>
       {isOpen ? (
         <LocationWrapper>
           <SelectLocationHeader>

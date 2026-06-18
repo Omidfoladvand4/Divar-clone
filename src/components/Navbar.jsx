@@ -12,6 +12,7 @@ import SupportOutlinedIcon from "@mui/icons-material/SupportOutlined";
 import LocationSelectorBox from "./LocationSelectorBox";
 import MobileNavbar from "./MobileNavbar";
 import { useCity } from "../context/Cities";
+import SubMenu from "./SubMenu";
 const NavbarWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -25,8 +26,8 @@ const NavbarWrapper = styled.div`
   left: 0;
   z-index: 10;
   @media (max-width: 480px) {
-     flex-direction: column-reverse;
      background: var(--color-primary);
+     flex-direction: row-reverse;
      padding: 0;
 
   }
@@ -60,7 +61,10 @@ const NavItem = styled.div`
   }
 `;
 const NavCityFilter = styled.div`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 `;
 const LocIcon = styled.div`
    display: flex;
@@ -77,11 +81,19 @@ const LocIcon = styled.div`
     background: var(--color-secondary);
     opacity: 1;
   }
+  @media (max-width: 480px) {
+     padding: 0;
+  } 
 `;
 const CurrentLocation = styled.div`
+display: flex;
 `;
-const NavCategoryFilter = styled(NavItem)``;
-const CategoryItem = styled.div``;
+const NavCategoryFilter = styled(NavItem)`
+position: relative;
+`;
+const CategoryItem = styled.div`
+
+`;
 const NavSearchBox = styled.div`
   width: 400px;
   display: flex;
@@ -90,7 +102,8 @@ const NavSearchBox = styled.div`
   background: var(--color-secondary);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   @media (max-width: 480px) {
-     width: 100vw;
+     width: 80vw;
+     height: 100%;
   }
 `;
 const NavSearchBoxInput = styled.input`
@@ -124,7 +137,11 @@ function Navbar() {
   const [isOpenSelectLoc, setIsopenSelectLoc] = useState(false);
   const [cityData, setCityData] = useState(citiesData);
   const [selectedCity, setSelectedCity] = useState([]);
-  const [inputFocus , setInputFocus] = useState(false)
+  const [inputFocus , setInputFocus] = useState(false);
+  const [invisible , setInvisible] = useState(false)
+  const navCategoryClickHanler = () => {
+    setInvisible(prev => !prev)
+  }
   return (
     <>
       <NavbarWrapper>
@@ -141,8 +158,10 @@ function Navbar() {
 </CurrentLocation>
           </LocIcon>
         </NavCityFilter>
-        <NavCategoryFilter>
-          <CategoryItem>دسته ها</CategoryItem>
+        <NavCategoryFilter >
+          <CategoryItem onClick={navCategoryClickHanler}>دسته ها  
+            <SubMenu visible= {invisible}/>
+          </CategoryItem>
           <KeyboardArrowDownOutlinedIcon />
         </NavCategoryFilter>
         <NavSearchBox>
