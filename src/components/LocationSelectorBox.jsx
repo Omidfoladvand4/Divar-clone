@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useCity } from "../context/Cities";
 const LocationWrapper = styled.div`
   position: fixed;
   width: 600px;
@@ -189,6 +190,7 @@ transition : all .3s ease ;
 
 `;
 function LocationSelectorBox({ isOpen, setIsOpen, CityList, setCityList  , selected , setSelected}) {
+    const {city , setCity} = useCity()
     const [inputFocus , setInputFocus] = useState(false)
     const [inputValue , setInputValue] = useState('')
     const [filteredProvinces, setFilteredProvinces] = useState([]);
@@ -200,6 +202,7 @@ function LocationSelectorBox({ isOpen, setIsOpen, CityList, setCityList  , selec
                 return prevSelected.filter(item => item !== city)
             }else {
                 return[...prevSelected , city]
+                
             }
         })
         
@@ -230,6 +233,9 @@ const cancelHandler = () => {
 }
 const ChangeCityHandler = () => {
      setIsOpen(false)
+     setCity([...selected])
+     console.log('cities in context ' , city);
+     
      navigate(`/s/${selected}`)
     
 }

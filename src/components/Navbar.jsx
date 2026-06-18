@@ -11,6 +11,7 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SupportOutlinedIcon from "@mui/icons-material/SupportOutlined";
 import LocationSelectorBox from "./LocationSelectorBox";
 import MobileNavbar from "./MobileNavbar";
+import { useCity } from "../context/Cities";
 const NavbarWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -119,6 +120,7 @@ const AddPostBtn = styled.div`
 `;
 
 function Navbar() {
+  const {city } = useCity()
   const [isOpenSelectLoc, setIsopenSelectLoc] = useState(false);
   const [cityData, setCityData] = useState(citiesData);
   const [selectedCity, setSelectedCity] = useState([]);
@@ -133,9 +135,9 @@ function Navbar() {
           <LocIcon onClick={() => setIsopenSelectLoc((open) => !open)}>
             <RoomOutlinedIcon />
           <CurrentLocation>
-  {selectedCity.length === 0 ? 'کل ایران' : 
-   selectedCity.length === 1 ? selectedCity[0] : 
-   `${selectedCity.length} شهر`}
+  {city.length === 0 ? 'کل ایران' : 
+   city.length === 1 ? city[0] : 
+   `${city.length} شهر`}
 </CurrentLocation>
           </LocIcon>
         </NavCityFilter>
