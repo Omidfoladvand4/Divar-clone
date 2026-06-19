@@ -202,11 +202,10 @@ function LocationSelectorBox({ isOpen, setIsOpen, CityList  , selected , setSele
        
     }
 const userSearchHandler = (e) => {
-  const value = e.target.value;
+  const value = e.target.value.trim('');
   setInputValue(value);
   
   if (!CityList?.provinces) return;
-  
 
     const filtered = CityList.provinces
       .map((province) => ({

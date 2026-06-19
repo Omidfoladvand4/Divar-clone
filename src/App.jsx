@@ -1,6 +1,6 @@
 import './App.css'
 import AppRoutes from "./routes";
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 const AppWrapper = styled.div`
@@ -13,13 +13,13 @@ const AppWrapper = styled.div`
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
     <AppWrapper>
 
     <AppRoutes />
     </AppWrapper>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
