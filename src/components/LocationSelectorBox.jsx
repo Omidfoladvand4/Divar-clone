@@ -57,6 +57,7 @@ const SelectLocationNavbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+   font-weight: (--font-medium);
 `;
 const SelectLocationTitle = styled.div`
   font-size: var(--text-lg);
@@ -108,11 +109,12 @@ const SelectedCityItem = styled.div`
     justify-content: center;
     margin: 8px 2px;
     cursor: pointer;
-    font-size: var(--text-xs);
+    font-size: var(--text-md);
    border: 1px solid var(--color-accent);
    color: var(--color-accent);
    border-radius: 25px;
    padding: 10px;
+   font-weight: (--font-extrabold);
 `
 const SelectLocationList = styled.div`
   width: 100%;
