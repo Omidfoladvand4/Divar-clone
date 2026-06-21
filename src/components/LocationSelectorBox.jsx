@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { useCity } from "../context/Cities";
 import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   width: 600px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 24px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
 
@@ -30,6 +30,7 @@ const LocationWrapper = styled.div`
   }
   @media (max-width: 480px) {
       width: 100vw;
+      height: 90vh;
       padding: 0 10px;
   }
 `;
@@ -57,6 +58,7 @@ const SelectLocationNavbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+   font-weight: (--font-medium);
 `;
 const SelectLocationTitle = styled.div`
   font-size: var(--text-lg);
@@ -108,11 +110,12 @@ const SelectedCityItem = styled.div`
     justify-content: center;
     margin: 8px 2px;
     cursor: pointer;
-    font-size: var(--text-xs);
+    font-size: var(--text-md);
    border: 1px solid var(--color-accent);
    color: var(--color-accent);
    border-radius: 25px;
    padding: 10px;
+   font-weight: (--font-extrabold);
 `
 const SelectLocationList = styled.div`
   width: 100%;
@@ -202,11 +205,10 @@ function LocationSelectorBox({ isOpen, setIsOpen, CityList  , selected , setSele
        
     }
 const userSearchHandler = (e) => {
-  const value = e.target.value;
+  const value = e.target.value.trim('');
   setInputValue(value);
   
   if (!CityList?.provinces) return;
-  
 
     const filtered = CityList.provinces
       .map((province) => ({

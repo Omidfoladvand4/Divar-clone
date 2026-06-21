@@ -12,6 +12,7 @@ const AppWrapper = styled.div`
 `
 function App() {
 
+
   return (
     <HashRouter>
       <Navbar />

@@ -13,10 +13,12 @@ const MobileNavbarWrapper = styled.div`
     left: 0;
     bottom: 0;
     align-items: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> recovered-branch
     background-color: var(--color-secondary);
     color: var(--color-info);
-    padding: 0 12px;
     display: none;
     @media (max-width: 480px) {
          display: flex;
