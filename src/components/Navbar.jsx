@@ -102,12 +102,12 @@ const NavSearchBox = styled.div`
   background: var(--color-secondary);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   @media (max-width: 480px) {
-     width: 80vw;
+     width: 75vw;
      height: 100%;
   }
 `;
 const NavSearchBoxInput = styled.input`
-  width: 95%;
+  width: 90%;
   padding: 12px;
   background-color: inherit;
   color: var(--color-info);

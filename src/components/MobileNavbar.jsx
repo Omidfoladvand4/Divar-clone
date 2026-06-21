@@ -8,21 +8,20 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 
 
 const MobileNavbarWrapper = styled.div`
-    width: 100vw;
+    width: 100%;
     position: fixed;
     left: 0;
     bottom: 0;
     align-items: center;
-    justify-content: space-between;
     background-color: var(--color-secondary);
     color: var(--color-info);
-    padding: 0 12px;
     display: none;
     @media (max-width: 480px) {
          display: flex;
     }
 `
 const MobileNavbarItem = styled.div`
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;

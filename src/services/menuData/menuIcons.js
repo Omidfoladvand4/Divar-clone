@@ -19,3 +19,5 @@ export const categories = [
   { id: 8, title: 'تجهیزات صنعتی', icon: WorkIcon },
   { id: 9, title: 'استخدام و کاریابی', icon: PermIdentityIcon },
 ];
+
+

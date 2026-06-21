@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 import { useCity } from "../context/Cities";
 import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
-  position: fixed;
+  position: absolute;
   width: 600px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   padding: 10px 24px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
 
@@ -30,6 +30,7 @@ const LocationWrapper = styled.div`
   }
   @media (max-width: 480px) {
       width: 100vw;
+      height: 90vh;
       padding: 0 10px;
   }
 `;
