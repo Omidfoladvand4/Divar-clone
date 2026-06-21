@@ -38,7 +38,7 @@ const LinkItem = styled(Link)`
   color: var(--color-accent);
   font-weight: var(--font-bold);
   font-size: var(--text-xl);
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
      display: none;
   }
 `;
@@ -57,7 +57,7 @@ const NavItem = styled.div`
     background: var(--color-secondary);
     opacity: 1;
   }
-    @media (max-width: 480px) {
+    @media (max-width: 900px) {
      display: none;
   }
 `;
@@ -103,6 +103,10 @@ font-size: var(--text-base);
 `;
 const NavCategoryFilter = styled(NavItem)`
 position: relative;
+display: flex;
+   @media (max-width: 1280px) {
+       display: none;
+   }
 `;
 const CategoryItem = styled.div`
 
@@ -140,7 +144,7 @@ const AddPostBtn = styled.div`
   border-radius: 4px;
   padding: 10px 16px;
   cursor: pointer;
-    @media (max-width: 480px) {
+    @media (max-width: 1024px) {
      display: none;
   }
 `;
@@ -172,8 +176,8 @@ function Navbar() {
 </CurrentLocation>
           </LocIcon>
         </NavCityFilter>
-        <NavCategoryFilter >
-          <CategoryItem onClick={navCategoryClickHanler}>دسته ها  
+        <NavCategoryFilter onClick={navCategoryClickHanler}>
+          <CategoryItem >دسته ها  
             <SubMenu visible= {invisible}/>
           </CategoryItem>
           <KeyboardArrowDownOutlinedIcon />

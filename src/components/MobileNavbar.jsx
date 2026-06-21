@@ -14,7 +14,7 @@ const MobileNavbarWrapper = styled.div`
     align-items: center;
     color: var(--color-info);
     display: none;
-    @media (max-width: 480px) {
+    @media (max-width: 960px) {
          display: flex;
     }
 `

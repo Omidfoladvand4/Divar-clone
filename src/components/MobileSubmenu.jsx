@@ -13,7 +13,7 @@ const MoblieMenuWrapper = styled.div`
     width: 100%;
     margin-top: 100px;
     padding: 12px 8px;
-    @media (max-width: 480px) {
+    @media (max-width: 960px) {
         display: flex;
     } 
 `
