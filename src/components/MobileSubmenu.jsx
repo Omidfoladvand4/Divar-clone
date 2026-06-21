@@ -12,7 +12,7 @@ const MoblieMenuWrapper = styled.div`
     flex-wrap: wrap;
     width: 100%;
     margin-top: 100px;
-    padding: 20px 16px;
+    padding: 12px 8px;
     @media (max-width: 480px) {
         display: flex;
     } 
@@ -43,7 +43,7 @@ const SubmenuWrapper = styled.div`
     flex-direction: column;
     padding: 10px 14px;
     bottom: 0;
-    height: 70%;
+    height: 80%;
     left: 0;
     z-index: 9998;
     overflow: scroll;
@@ -106,14 +106,14 @@ const SubmenuItemsTitle = styled.div`
 const SubmenuItemWrapper = styled.div`
     position: absolute;
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 10px 14px;
     bottom: 0;
-    height: 100%;
     left: 0;
-    z-index: 9998;
+    z-index: 9999;
     background: var(--color-secondary);
 `
 function MobileSubmenu() {
