@@ -31,7 +31,7 @@ const MoblieMenuItemTitle =styled.div`
     color: var(--color-info);
 `
 const MoblieMenuItemImage = styled.img`
-    width: 50%;
+    width: 35%;
     object-fit: cover;
 `
 
@@ -91,7 +91,7 @@ const SubmenuItems = styled.div`
     align-items: center;
     justify-content: flex-start;
     gap: 14px;
-    padding: 14px 16px;
+    padding: 6px 10px;
     background:var(--color-subtitle);
     border-radius: 8px;
     color: var(--color-info);
@@ -162,7 +162,7 @@ function MobileSubmenu() {
                     <SubmenuItemsIcon src={submenuImage}>
                     </SubmenuItemsIcon>
                     <SubmenuItemsTitle>{category.title}</SubmenuItemsTitle>
-                    <ArrowBackIosIcon/>
+                    <ArrowBackIosIcon style={{marginRight : 'auto'}}/>
                 </SubmenuItems>
                 ))}
             </SubmenuItemsWrapper>

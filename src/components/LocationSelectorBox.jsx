@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
@@ -13,8 +13,8 @@ const LocationWrapper = styled.div`
   background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
-     z-index: 999;
-  position: absolute;
+     z-index: 9999;
+  position: fixed;
 
   animation: animate 0.5s ease;
   @keyframes animate {
@@ -29,7 +29,7 @@ const LocationWrapper = styled.div`
   }
   @media (max-width: 480px) {
       width: 100vw;
-      height: 90vh;
+      height: 100%;
       padding: 0 10px;
   }
 `;
@@ -57,7 +57,7 @@ const SelectLocationNavbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-   font-weight: (--font-medium);
+   font-weight: var(--font-medium);
 `;
 const SelectLocationTitle = styled.div`
   font-size: var(--text-lg);
@@ -190,6 +190,12 @@ function LocationSelectorBox({ isOpen, setIsOpen, CityList  , selected , setSele
     const [inputValue , setInputValue] = useState('')
     const [filteredProvinces, setFilteredProvinces] = useState([]);
     const navigate = useNavigate()
+     useEffect(() => {
+    if (isOpen && CityList?.provinces) {
+      setFilteredProvinces(CityList.provinces);
+      setInputValue('')
+    }
+  }, [isOpen, CityList]);
     function userSelectCityHandler(city) {
       
         setSelected(prevSelected => {
@@ -207,7 +213,7 @@ const userSearchHandler = (e) => {
   const value = e.target.value.trim('');
   setInputValue(value);
   
-  if (!CityList?.provinces) return;
+  if (!CityList?.provinces) return ;
 
     const filtered = CityList.provinces
       .map((province) => ({
@@ -258,7 +264,7 @@ const ChangeCityHandler = () => {
               </SelectLocationSearchBoxIcon>
             </SelectLocationSearchBox>
             <SelectLocationList>
-              {selected.length == 0 ?
+              {selected.length === 0 ?
                <SelectLocationItem>
                 حداقل یک شهر را انتخاب کنید.
               </SelectLocationItem>
