@@ -27,8 +27,9 @@ const NavbarWrapper = styled.div`
   z-index: 10;
   @media (max-width: 480px) {
      background: var(--color-primary);
-     flex-direction: row-reverse;
-     padding: 0;
+     flex-direction: column-reverse;
+     padding: 6px;
+     gap: 6px;
 
   }
 `;
@@ -66,6 +67,13 @@ const NavCityFilter = styled.div`
   justify-content: center;
   align-items: center;
 `;
+const LocIconTitle = styled.div`
+   display: none;
+   color: var(--color-info);
+   @media (max-width: 480px) {
+    display: block;
+   }
+`
 const LocIcon = styled.div`
    display: flex;
   align-items: center;
@@ -87,6 +95,11 @@ const LocIcon = styled.div`
 `;
 const CurrentLocation = styled.div`
 display: flex;
+gap: 6px;
+font-size: var(--text-base);
+@media (max-width: 480px) {
+  color: var(--color-accent);
+}
 `;
 const NavCategoryFilter = styled(NavItem)`
 position: relative;
@@ -102,7 +115,7 @@ const NavSearchBox = styled.div`
   background: var(--color-secondary);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   @media (max-width: 480px) {
-     width: 75vw;
+     width: 95vw;
      height: 100%;
   }
 `;
@@ -152,6 +165,7 @@ function Navbar() {
           <LocIcon onClick={() => setIsopenSelectLoc((open) => !open)}>
             <RoomOutlinedIcon />
           <CurrentLocation>
+            <LocIconTitle>موقعیت :</LocIconTitle>
   {city.length === 0 ? 'کل ایران' : 
    city.length === 1 ? city[0] : 
    `${city.length} شهر`}

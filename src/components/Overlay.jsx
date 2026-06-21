@@ -8,6 +8,7 @@ opacity: .5;
 position: fixed;
 top: 0;
 transition: all 0.3s ease;
+z-index: 800;
 `
 function Overlay({isOpen , setIsOpen}) {
     return (

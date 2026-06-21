@@ -22,6 +22,10 @@ const SubMenuWrapper = styled.div`
           opacity: 1;
        }
     }
+
+    @media (max-width: 1280px ) {
+      display: none;
+    }
 `
 const SidebarWrapper = styled.div`
    width: 230px;
@@ -154,8 +158,8 @@ function SubMenu({visible}) {
     <SubmenuGroups key={item.id || index}>
       {item.subCategories?.map((sub) => (
         <SubmenuGroup key={sub.id}>{sub.title}
-         {sub.items.map((item) => {
-        return   <SubmenuItem>{item}</SubmenuItem>
+         {sub.items.map((item , index) => {
+        return   <SubmenuItem key={index}>{item}</SubmenuItem>
          })}
         </SubmenuGroup>
       ))}
@@ -165,7 +169,7 @@ function SubMenu({visible}) {
  
   
   <SubmenuAside>
-     {subMenuItemFiltred.map((item , index) => (
+     {subMenuItemFiltred.map((item ) => (
       <>
        <SubmenuImage src={item.image}/>
       <SubmenuLink>مشاهده همه {item.title}</SubmenuLink>

@@ -227,7 +227,7 @@ export const items = [
   },
   {
     id: 7,
-    title: 'سرگرمی و فراغت',
+    title: 'سرگرمی',
     image : entertainmentImg ,
     subCategories: [
       {

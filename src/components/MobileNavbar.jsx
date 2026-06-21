@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import HomeIcon from '@mui/icons-material/Home';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
@@ -13,11 +12,6 @@ const MobileNavbarWrapper = styled.div`
     left: 0;
     bottom: 0;
     align-items: center;
-<<<<<<< HEAD
-
-=======
->>>>>>> recovered-branch
-    background-color: var(--color-secondary);
     color: var(--color-info);
     display: none;
     @media (max-width: 480px) {

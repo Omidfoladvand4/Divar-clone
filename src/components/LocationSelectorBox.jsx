@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { useCity } from "../context/Cities";
 import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
-  position: absolute;
   width: 600px;
   height: 100%;
   margin: 0 auto;
@@ -14,9 +13,9 @@ const LocationWrapper = styled.div`
   background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
+     z-index: 999;
+  position: absolute;
 
-  top: 0;
-  z-index: 9999;
   animation: animate 0.5s ease;
   @keyframes animate {
     0% {
@@ -36,11 +35,11 @@ const LocationWrapper = styled.div`
 `;
 
 const Div = styled.div`
-  width: 100%;
-  height: 80vh;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
   display: flex;
   justify-content: center;
-  overflow: hidden;
 `;
 
 const SelectLocationHeader = styled.div`
@@ -235,10 +234,11 @@ const ChangeCityHandler = () => {
     
 }
   return (
-    <Div>
+    <>
         <Overlay isOpen={isOpen} setIsOpen={setIsOpen}/>
       {isOpen ? (
-        <LocationWrapper>
+    <Div>
+       <LocationWrapper>
           <SelectLocationHeader>
             <SelectLocationNavbar>
               <SelectLocationTitle>انتخاب شهر</SelectLocationTitle>
@@ -306,10 +306,11 @@ const ChangeCityHandler = () => {
             >تایید</LocationCancelBtn>
           </LocationFooterBtns>
         </LocationWrapper>
+    </Div>
       ) : (
         ""
       )}
-    </Div>
+    </>
   );
 }
 
