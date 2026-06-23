@@ -13,7 +13,9 @@ const MobileNavbarWrapper = styled.div`
     bottom: 0;
     align-items: center;
     color: var(--color-info);
+    background: var(--color-primary);
     display: none;
+    z-index: 9999;
     @media (max-width: 960px) {
          display: flex;
     }

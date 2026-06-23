@@ -41,7 +41,7 @@ body {
   margin: 0;
   background-color: var(--color-primary);
   color: var(--color-info);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 500;
 }
 ::-webkit-scrollbar {

@@ -19,7 +19,8 @@ const NavbarWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 10px 12px;
+  padding: 6px 8px;
+  background-color: var(--color-primary);
   box-shadow: 0px 1px 2px var(--color-info);
   position: fixed;
   top: 0;

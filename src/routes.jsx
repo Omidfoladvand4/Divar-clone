@@ -11,7 +11,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/iran" replace />} />
-      <Route path="/:City"  element={<Home />} />
+      <Route path="/:City/"  element={<Home />} />
       <Route path="/Category/:id" element={<Category />} />
       <Route path="/New" element={<New />} />
       <Route path="/Visit" element={<Visit />} />
