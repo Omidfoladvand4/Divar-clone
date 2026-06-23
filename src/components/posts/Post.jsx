@@ -135,7 +135,7 @@ function Post({ ad }) {
         <CardTitle>{ad.title}</CardTitle>
         <CardMeta>
         <CardPrice>{ad.price.toLocaleString()} تومان</CardPrice>
-          <CardDate>{relativeDate}</CardDate>
+          <CardDate>{relativeDate} در {ad.subCategory}</CardDate>
         </CardMeta>
       </CardContent>
 

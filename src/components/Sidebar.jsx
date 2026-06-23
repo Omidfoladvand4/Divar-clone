@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { categories } from "../services/menuData/menuIcons"
-import { useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import {  useNavigate } from "react-router-dom"
 import { useCity } from "../context/Cities"
 const SidebarWrapper = styled.div`
     position: fixed;
@@ -75,7 +75,7 @@ const InputForm = styled.input`
         border: 1px solid var(--color-accent);
     }
     &::placeholder{
-        color: red;
+        color: var(--color-accent)
         
     }
 `
@@ -97,7 +97,7 @@ const InputTo = styled.input`
         border: 1px solid var(--color-accent);
     }
     &::placeholder{
-        color: red;
+        color: var(--color-accent)
         
     }
 `
@@ -174,51 +174,65 @@ const Span = styled.div`
     }
   }};
 `;
-function Sidebar() {
-    const location = useLocation()
-    const navigate = useNavigate()
-    const params = new URLSearchParams(location.search)
-  const {city} = useCity()
-  const [hasImage, setHasImage] = useState(params.get('has-photo') === 'true');
-  const [priceMin, setPriceMin] = useState(params.get('priceMin') || '');
-  const [priceMax, setPriceMax] = useState(params.get('priceMax') || '');
-  const [recentAds, setRecentAds] = useState(params.get('recent_ads') || '3-hour');
+function Sidebar({posts = [] , onFilterChange}) {
+  const [hasImage, setHasImage] = useState(true);
+  const [priceMin, setPriceMin] = useState('');
+  const [priceMax, setPriceMax] = useState('');
+  const [recentAds, setRecentAds] = useState('');
 
-   const updateURL = (newParams) => {
-    const searchParams = new URLSearchParams(location.search);
-    
-    Object.keys(newParams).forEach(key => {
-      const value = newParams[key];
-      if (value && value !== '') {
-        searchParams.set(key, value);
-      } else {
-        searchParams.delete(key);
+
+  const applyFilters = () => {
+    let filtred = [...posts] 
+
+    if(hasImage) {
+      filtred = filtred.filter((item) => item.hasPhoto === true)
+    }
+     if (priceMin !== '') {
+      filtred = filtred.filter(item => item.price >= Number(priceMin));
+    }
+
+     if (priceMax !== '') {
+      filtred = filtred.filter(item => item.price <= Number(priceMax));
+    }
+     if (recentAds !== '') {
+      const now = new Date();
+      const hoursMap = {
+        '3-hour': 3,
+        '12-hour': 12,
+        '1-day': 24,
+        '3-day': 72,
+        '7-day': 168,
+      };
+      const hours = hoursMap[recentAds];
+      if (hours) {
+        const limitDate = new Date(now.getTime() - hours * 60 * 60 * 1000);
+        filtred = filtred.filter(item => 
+          new Date(item.date) >= limitDate
+        );
       }
-    });
-    
-    const queryString = searchParams.toString();
-    navigate(`/s/${queryString ? `?${queryString}` : ''}`, { replace: true });
-  };
-  const handleImageToggle = () => {
-    const newValue = !hasImage;
-    setHasImage(newValue);
-    updateURL({ 'has-photo': newValue ? 'true' : '' });
-  };
+    }
 
-   const handlePriceChange = (type, value) => {
-    if (type === 'min') {
-      setPriceMin(value);
-      updateURL({ 'priceMin': value, 'priceMax': priceMax });
-    } else {
-      setPriceMax(value);
-      updateURL({ 'priceMin': priceMin, 'priceMax': value });
+      if (onFilterChange) {
+      onFilterChange(filtred);
     }
   };
-    const handleRecentChange = (e) => {
-    const value = e.target.value;
-    setRecentAds(value);
-    updateURL({ 'recent_ads': value });
+    const handleImageToggle = () => {
+    setHasImage(prev => !prev);
   };
+
+  const handlePriceChange = (type, value) => {
+    if (type === 'min') {
+      setPriceMin(value);
+    } else {
+      setPriceMax(value);
+    }
+  };
+   const handleRecentChange = (e) => {
+    setRecentAds(e.target.value);
+  };
+   useEffect(() => {
+    applyFilters();
+  }, [hasImage, priceMin, priceMax, recentAds, posts]);
   return (
     <SidebarWrapper>
         <SidebarCategory>
@@ -251,7 +265,7 @@ function Sidebar() {
             </ToSection>
           </PriceFilter>
 
-          <ImageFilter onClick={() => handleImageToggle()}>
+          <ImageFilter onClick={() => handleImageToggle(posts)}>
             <FilterLabel>عکس دار</FilterLabel>
             <InputImageFilter $isActive={hasImage}>
                     <Span $isActive={hasImage}></Span>

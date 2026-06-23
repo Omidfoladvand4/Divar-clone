@@ -51,14 +51,27 @@ function Home() {
       );
       setFilteredData(filtered);
     }
+    console.log(adsData);
     
     setLoading(false);
-  }, [cityParam]);
+  }, [cityParam ]);
+
+   const handleFilterChange = (filteredPosts) => {
+   
+    let data = adsData;
+    
+    if (cityParam !== 'iran') {
+      const cities = cityParam.split(',').map(c => c.trim());
+      data = adsData.filter(item => cities.includes(item.city));
+    }
+    
+    setFilteredData(filteredPosts);
+  };
 
   if (loading) {
     return (
       <HomeWrapper>
-        <Sidebar />
+        <Sidebar posts={adsData}/>
         <MainContent>
           <LoadingText>در حال بارگذاری آگهی‌ها...</LoadingText>
         </MainContent>
@@ -68,13 +81,10 @@ function Home() {
 
   return (
     <HomeWrapper>
-      <Sidebar />
+      <Sidebar posts={adsData} onFilterChange={handleFilterChange}/>
       
       <MainContent>
-        <h2>آگهی‌های {cityParam === 'iran' ? 'همه شهرها' : cityParam}</h2>
-        <p style={{ color: '#999', marginBottom: '10px' }}>
-          {filteredData.length} آگهی پیدا شد
-        </p>
+        <h4 >آگهی ها و نیاز مندی ها در{cityParam === 'iran' ? 'همه شهرها' : cityParam} </h4>
         
         <Posts>
           {filteredData.length > 0 ? (
