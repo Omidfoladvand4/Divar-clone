@@ -8,7 +8,8 @@ const AdsGrid = styled.div`
   gap: 20px;
   padding: 20px 0;
   @media (max-width: 480px) {
-    width: 100%;
+      width: 100%;
+      margin-bottom: 40px;
   }
 `;
 function Posts({children}) {

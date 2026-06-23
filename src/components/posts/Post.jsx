@@ -33,6 +33,10 @@ const CardImageBox = styled.div`
   height: 130px;
   position: relative;
   flex-shrink: 0;
+    @media (max-width: 480px) {
+     width: 35%;
+     height: 100px;
+  }
 `;
 
 const CardImage = styled.img`
@@ -69,6 +73,10 @@ const NoImage = styled.div`
   font-weight: 600;
   font-size: 14px;
   border-radius: 4px;
+  @media (max-width: 480px) {
+     width: 35%;
+     height: 100px;
+  }
 `;
 
 const CardContent = styled.div`
@@ -81,6 +89,7 @@ const CardContent = styled.div`
 `;
 
 const CardTitle = styled.h3`
+  width: 100%;
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-info);
@@ -89,6 +98,10 @@ const CardTitle = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  @media (max-width: 480px) {
+  font-size: var(--text-base);
+    
+  }
 `;
 
 const CardPrice = styled.div`
