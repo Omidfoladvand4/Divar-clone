@@ -206,7 +206,7 @@ cursor: pointer;
  font-size: 18px;
  color: var(--color-subtitle);
  grid-column: 1 / -1;
-`;function j2(){return w.jsx(T2,{children:"😕 هیچ آگهی در این شهر یافت نشد"})}const b2=$.div`
+`;function j2(){return w.jsx(T2,{children:" هیچ آگهی در این شهر یافت نشد"})}const b2=$.div`
   
   display: flex;
   justify-content: center;
@@ -215,7 +215,7 @@ cursor: pointer;
   padding: 20px 0;
   @media (max-width: 480px) {
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 70px;
   }
 `;function F2({children:n}){return w.jsx(b2,{children:n})}var Vl={exports:{}},M2=Vl.exports,Nh;function xg(){return Nh||(Nh=1,(function(n,i){(function(o,a){n.exports=a()})(M2,(function(){var o=1e3,a=6e4,s=36e5,c="millisecond",d="second",p="minute",m="hour",g="day",x="week",y="month",E="quarter",S="year",I="date",C="Invalid Date",P=/^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/,M=/\[([^\]]+)]|YYYY|YY|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g,F={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(z){var B=["th","st","nd","rd"],_=z%100;return"["+z+(B[(_-20)%10]||B[_]||B[0])+"]"}},K=function(z,B,_){var ee=String(z);return!ee||ee.length>=B?z:""+Array(B+1-ee.length).join(_)+z},V={s:K,z:function(z){var B=-z.utcOffset(),_=Math.abs(B),ee=Math.floor(_/60),L=_%60;return(B<=0?"+":"-")+K(ee,2,"0")+":"+K(L,2,"0")},m:function z(B,_){if(B.date()<_.date())return-z(_,B);var ee=12*(_.year()-B.year())+(_.month()-B.month()),L=B.clone().add(ee,y),G=_-L<0,Q=B.clone().add(ee+(G?-1:1),y);return+(-(ee+(_-L)/(G?L-Q:Q-L))||0)},a:function(z){return z<0?Math.ceil(z)||0:Math.floor(z)},p:function(z){return{M:y,y:S,w:x,d:g,D:I,h:m,m:p,s:d,ms:c,Q:E}[z]||String(z||"").toLowerCase().replace(/s$/,"")},u:function(z){return z===void 0}},Y="en",U={};U[Y]=F;var W="$isDayjsObject",ne=function(z){return z instanceof v||!(!z||!z[W])},ge=function z(B,_,ee){var L;if(!B)return Y;if(typeof B=="string"){var G=B.toLowerCase();U[G]&&(L=G),_&&(U[G]=_,L=G);var Q=B.split("-");if(!L&&Q.length>1)return z(Q[0])}else{var R=B.name;U[R]=B,L=R}return!ee&&L&&(Y=L),L||!ee&&Y},he=function(z,B){if(ne(z))return z.clone();var _=typeof B=="object"?B:{};return _.date=z,_.args=arguments,new v(_)},re=V;re.l=ge,re.i=ne,re.w=function(z,B){return he(z,{locale:B.$L,utc:B.$u,x:B.$x,$offset:B.$offset})};var v=(function(){function z(_){this.$L=ge(_.locale,null,!0),this.parse(_),this.$x=this.$x||_.x||{},this[W]=!0}var B=z.prototype;return B.parse=function(_){this.$d=(function(ee){var L=ee.date,G=ee.utc;if(L===null)return new Date(NaN);if(re.u(L))return new Date;if(L instanceof Date)return new Date(L);if(typeof L=="string"&&!/Z$/i.test(L)){var Q=L.match(P);if(Q){var R=Q[2]-1||0,D=(Q[7]||"0").substring(0,3);return G?new Date(Date.UTC(Q[1],R,Q[3]||1,Q[4]||0,Q[5]||0,Q[6]||0,D)):new Date(Q[1],R,Q[3]||1,Q[4]||0,Q[5]||0,Q[6]||0,D)}}return new Date(L)})(_),this.init()},B.init=function(){var _=this.$d;this.$y=_.getFullYear(),this.$M=_.getMonth(),this.$D=_.getDate(),this.$W=_.getDay(),this.$H=_.getHours(),this.$m=_.getMinutes(),this.$s=_.getSeconds(),this.$ms=_.getMilliseconds()},B.$utils=function(){return re},B.isValid=function(){return this.$d.toString()!==C},B.isSame=function(_,ee){var L=he(_);return this.startOf(ee)<=L&&L<=this.endOf(ee)},B.isAfter=function(_,ee){return he(_)<this.startOf(ee)},B.isBefore=function(_,ee){return this.endOf(ee)<he(_)},B.$g=function(_,ee,L){return re.u(_)?this[ee]:this.set(L,_)},B.unix=function(){return Math.floor(this.valueOf()/1e3)},B.valueOf=function(){return this.$d.getTime()},B.startOf=function(_,ee){var L=this,G=!!re.u(ee)||ee,Q=re.p(_),R=function(we,Ce){var St=re.w(L.$u?Date.UTC(L.$y,Ce,we):new Date(L.$y,Ce,we),L);return G?St:St.endOf(g)},D=function(we,Ce){return re.w(L.toDate()[we].apply(L.toDate("s"),(G?[0,0,0,0]:[23,59,59,999]).slice(Ce)),L)},ie=this.$W,le=this.$M,ue=this.$D,ye="set"+(this.$u?"UTC":"");switch(Q){case S:return G?R(1,0):R(31,11);case y:return G?R(1,le):R(0,le+1);case x:var ve=this.$locale().weekStart||0,Ae=(ie<ve?ie+7:ie)-ve;return R(G?ue-Ae:ue+(6-Ae),le);case g:case I:return D(ye+"Hours",0);case m:return D(ye+"Minutes",1);case p:return D(ye+"Seconds",2);case d:return D(ye+"Milliseconds",3);default:return this.clone()}},B.endOf=function(_){return this.startOf(_,!1)},B.$set=function(_,ee){var L,G=re.p(_),Q="set"+(this.$u?"UTC":""),R=(L={},L[g]=Q+"Date",L[I]=Q+"Date",L[y]=Q+"Month",L[S]=Q+"FullYear",L[m]=Q+"Hours",L[p]=Q+"Minutes",L[d]=Q+"Seconds",L[c]=Q+"Milliseconds",L)[G],D=G===g?this.$D+(ee-this.$W):ee;if(G===y||G===S){var ie=this.clone().set(I,1);ie.$d[R](D),ie.init(),this.$d=ie.set(I,Math.min(this.$D,ie.daysInMonth())).$d}else R&&this.$d[R](D);return this.init(),this},B.set=function(_,ee){return this.clone().$set(_,ee)},B.get=function(_){return this[re.p(_)]()},B.add=function(_,ee){var L,G=this;_=Number(_);var Q=re.p(ee),R=function(le){var ue=he(G);return re.w(ue.date(ue.date()+Math.round(le*_)),G)};if(Q===y)return this.set(y,this.$M+_);if(Q===S)return this.set(S,this.$y+_);if(Q===g)return R(1);if(Q===x)return R(7);var D=(L={},L[p]=a,L[m]=s,L[d]=o,L)[Q]||1,ie=this.$d.getTime()+_*D;return re.w(ie,this)},B.subtract=function(_,ee){return this.add(-1*_,ee)},B.format=function(_){var ee=this,L=this.$locale();if(!this.isValid())return L.invalidDate||C;var G=_||"YYYY-MM-DDTHH:mm:ssZ",Q=re.z(this),R=this.$H,D=this.$m,ie=this.$M,le=L.weekdays,ue=L.months,ye=L.meridiem,ve=function(Ce,St,wn,sn){return Ce&&(Ce[St]||Ce(ee,G))||wn[St].slice(0,sn)},Ae=function(Ce){return re.s(R%12||12,Ce,"0")},we=ye||function(Ce,St,wn){var sn=Ce<12?"AM":"PM";return wn?sn.toLowerCase():sn};return G.replace(M,(function(Ce,St){return St||(function(wn){switch(wn){case"YY":return String(ee.$y).slice(-2);case"YYYY":return re.s(ee.$y,4,"0");case"M":return ie+1;case"MM":return re.s(ie+1,2,"0");case"MMM":return ve(L.monthsShort,ie,ue,3);case"MMMM":return ve(ue,ie);case"D":return ee.$D;case"DD":return re.s(ee.$D,2,"0");case"d":return String(ee.$W);case"dd":return ve(L.weekdaysMin,ee.$W,le,2);case"ddd":return ve(L.weekdaysShort,ee.$W,le,3);case"dddd":return le[ee.$W];case"H":return String(R);case"HH":return re.s(R,2,"0");case"h":return Ae(1);case"hh":return Ae(2);case"a":return we(R,D,!0);case"A":return we(R,D,!1);case"m":return String(D);case"mm":return re.s(D,2,"0");case"s":return String(ee.$s);case"ss":return re.s(ee.$s,2,"0");case"SSS":return re.s(ee.$ms,3,"0");case"Z":return Q}return null})(Ce)||Q.replace(":","")}))},B.utcOffset=function(){return 15*-Math.round(this.$d.getTimezoneOffset()/15)},B.diff=function(_,ee,L){var G,Q=this,R=re.p(ee),D=he(_),ie=(D.utcOffset()-this.utcOffset())*a,le=this-D,ue=function(){return re.m(Q,D)};switch(R){case S:G=ue()/12;break;case y:G=ue();break;case E:G=ue()/3;break;case x:G=(le-ie)/6048e5;break;case g:G=(le-ie)/864e5;break;case m:G=le/s;break;case p:G=le/a;break;case d:G=le/o;break;default:G=le}return L?G:re.a(G)},B.daysInMonth=function(){return this.endOf(y).$D},B.$locale=function(){return U[this.$L]},B.locale=function(_,ee){if(!_)return this.$L;var L=this.clone(),G=ge(_,ee,!0);return G&&(L.$L=G),L},B.clone=function(){return re.w(this.$d,this)},B.toDate=function(){return new Date(this.valueOf())},B.toJSON=function(){return this.isValid()?this.toISOString():null},B.toISOString=function(){return this.$d.toISOString()},B.toString=function(){return this.$d.toUTCString()},z})(),Z=v.prototype;return he.prototype=Z,[["$ms",c],["$s",d],["$m",p],["$H",m],["$W",g],["$M",y],["$y",S],["$D",I]].forEach((function(z){Z[z[1]]=function(B){return this.$g(B,z[0],z[1])}})),he.extend=function(z,B){return z.$i||(z(B,v,he),z.$i=!0),he},he.locale=ge,he.isDayjs=ne,he.unix=function(z){return he(1e3*z)},he.en=U[Y],he.Ls=U,he.p={},he}))})(Vl)),Vl.exports}var N2=xg();const ql=lc(N2);var _l={exports:{}},L2=_l.exports,Lh;function O2(){return Lh||(Lh=1,(function(n,i){(function(o,a){n.exports=a()})(L2,(function(){return function(o,a,s){o=o||{};var c=a.prototype,d={future:"in %s",past:"%s ago",s:"a few seconds",m:"a minute",mm:"%d minutes",h:"an hour",hh:"%d hours",d:"a day",dd:"%d days",M:"a month",MM:"%d months",y:"a year",yy:"%d years"};function p(g,x,y,E){return c.fromToBase(g,x,y,E)}s.en.relativeTime=d,c.fromToBase=function(g,x,y,E,S){for(var I,C,P,M=y.$locale().relativeTime||d,F=o.thresholds||[{l:"s",r:44,d:"second"},{l:"m",r:89},{l:"mm",r:44,d:"minute"},{l:"h",r:89},{l:"hh",r:21,d:"hour"},{l:"d",r:35},{l:"dd",r:25,d:"day"},{l:"M",r:45},{l:"MM",r:10,d:"month"},{l:"y",r:17},{l:"yy",d:"year"}],K=F.length,V=0;V<K;V+=1){var Y=F[V];Y.d&&(I=E?s(g).diff(y,Y.d,!0):y.diff(g,Y.d,!0));var U=(o.rounding||Math.round)(Math.abs(I));if(P=I>0,U<=Y.r||!Y.r){U<=1&&V>0&&(Y=F[V-1]);var W=M[Y.l];S&&(U=S(""+U)),C=typeof W=="string"?W.replace("%d",U):W(U,x,Y.l,P);break}}if(x)return C;var ne=P?M.future:M.past;return typeof ne=="function"?ne(C):ne.replace("%s",C)},c.to=function(g,x){return p(g,x,this,!0)},c.from=function(g,x){return p(g,x,this)};var m=function(g){return g.$u?s.utc():s()};c.toNow=function(g){return this.to(m(this),g)},c.fromNow=function(g){return this.from(m(this),g)}}}))})(_l)),_l.exports}var z2=O2();const D2=lc(z2);var Ql={exports:{}},B2=Ql.exports,Oh;function U2(){return Oh||(Oh=1,(function(n,i){(function(o,a){n.exports=a(xg())})(B2,(function(o){function a(d){return d&&typeof d=="object"&&"default"in d?d:{default:d}}var s=a(o),c={name:"fa",weekdays:"یک‌شنبه_دوشنبه_سه‌شنبه_چهارشنبه_پنج‌شنبه_جمعه_شنبه".split("_"),weekdaysShort:"یک‌شنبه_دوشنبه_سه‌شنبه_چهارشنبه_پنج‌شنبه_جمعه_شنبه".split("_"),weekdaysMin:"ی_د_س_چ_پ_ج_ش".split("_"),weekStart:6,months:"ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر".split("_"),monthsShort:"ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر".split("_"),ordinal:function(d){return d},formats:{LT:"HH:mm",LTS:"HH:mm:ss",L:"DD/MM/YYYY",LL:"D MMMM YYYY",LLL:"D MMMM YYYY HH:mm",LLLL:"dddd, D MMMM YYYY HH:mm"},relativeTime:{future:"در %s",past:"%s پیش",s:"چند ثانیه",m:"یک دقیقه",mm:"%d دقیقه",h:"یک ساعت",hh:"%d ساعت",d:"یک روز",dd:"%d روز",M:"یک ماه",MM:"%d ماه",y:"یک سال",yy:"%d سال"}};return s.default.locale(c,null,!0),c}))})(Ql)),Ql.exports}U2();ql.extend(D2);ql.locale("fa");const H2=$.div`
   display: flex;
@@ -240,7 +240,6 @@ cursor: pointer;
   width: 30%;
   height: 130px;
   position: relative;
-  flex-shrink: 0;
     @media (max-width: 480px) {
      width: 35%;
      height: 100px;
@@ -351,7 +350,7 @@ z-index: 800;
   background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
-     z-index: 9999;
+  z-index: 9999;
   position: fixed;
 
   animation: animate 0.5s ease;
@@ -369,6 +368,7 @@ z-index: 800;
       width: 100vw;
       height: 100%;
       padding: 0 10px;
+      font-size: var(--text-xl);
   }
 `,hC=$.div`
   width: 100vw;
@@ -411,6 +411,7 @@ z-index: 800;
 `,AC=$.input`
   width: 95%;
   background-color: inherit;
+  font-size: var(--text-lg);
   color: var(--color-info);
 `,SC=$.div`
   display: flex;
@@ -428,18 +429,18 @@ align-items: center;
     background-color: transparent !important;
   }
 `,CC=$.div`
-    width: 20%;
+    width:  max-content;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 8px 2px;
     cursor: pointer;
+    padding: 10px;
     font-size: var(--text-md);
    border: 1px solid var(--color-accent);
    color: var(--color-accent);
    border-radius: 25px;
-   padding: 10px;
    font-weight: (--font-extrabold);
 `,kC=$.div`
   width: 100%;
@@ -489,14 +490,14 @@ align-items: center;
   padding: 8px 16px;
   border: 1px solid var(--color-info);
   color: var(--color-info);
-font-size: var(--text-base);
+font-size: var(--text-lg);
 
 `,MC=$.button`
   width: 40%;
   color: var(--color-info);
   cursor: pointer;
   padding: 8px 16px;
-font-size: var(--text-base);
+font-size: var(--text-lg);
 transition : all .3s ease ; 
 
 `;function NC({isOpen:n,setIsOpen:i,CityList:o,selected:a,setSelected:s}){const{city:c,setCity:d}=bc(),[p,m]=j.useState(!1),[g,x]=j.useState(""),[y,E]=j.useState([]),S=ra();j.useEffect(()=>{n&&(o!=null&&o.provinces)&&(E(o.provinces),x(""))},[n,o]);function I(F){s(K=>K.includes(F)?K.filter(V=>V!==F):[...K,F])}const C=F=>{const K=F.target.value.trim("");if(x(K),!(o!=null&&o.provinces))return;const V=o.provinces.map(Y=>({...Y,cities:Y.cities.filter(U=>U.toLowerCase().includes(K.toLowerCase()))})).filter(Y=>Y.cities.length>0);E(V)},P=()=>{i(!1),x(""),s([])},M=()=>{i(!1),d([...a]),console.log("cities in context ",c),S(`/${a}`)};return w.jsxs(w.Fragment,{children:[w.jsx(dC,{isOpen:n,setIsOpen:i}),n?w.jsx(hC,{children:w.jsxs(pC,{children:[w.jsxs(mC,{children:[w.jsxs(gC,{children:[w.jsx(yC,{children:"انتخاب شهر"}),w.jsx(vC,{onClick:()=>s([]),children:"حذف همه"})]}),w.jsxs(xC,{children:[w.jsx(AC,{onChange:C,value:g,onFocus:()=>m(!0),onBlur:()=>m(!1),placeholder:"جستجو در شهرها"}),w.jsxs(SC,{children:[" ",p?w.jsx(ea,{}):w.jsx(Ag,{})," "]})]}),w.jsx(kC,{children:a.length===0?w.jsx(EC,{children:"حداقل یک شهر را انتخاب کنید."}):w.jsx(wC,{children:a.map(F=>w.jsxs(CC,{children:[F," ",w.jsx(ea,{onClick:()=>I(F)})," "]},F))})})]}),w.jsx(RC,{children:y.map((F,K)=>w.jsxs(w.Fragment,{children:[w.jsx(IC,{children:F.name},F+K),F.cities.map((V,Y)=>w.jsxs(PC,{onClick:()=>I(V),children:[w.jsx(TC,{htmlFor:V,children:V}),w.jsx(jC,{onChange:()=>I(V),id:V,checked:a.includes(V),type:"checkbox"})]},V+Y))]}))}),w.jsxs(bC,{children:[w.jsx(FC,{onClick:P,children:"انصراف"}),w.jsx(MC,{onClick:M,disabled:a.length===0,style:{opacity:a.length===0?.5:1,cursor:a.length===0?"not-allowed":"pointer",background:a.length===0?"var(--color-primary)":"var(--color-accent)"},children:"تایید"})]})]})}):""]})}const LC=Je(w.jsx("path",{d:"M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2m0 15-5-2.18L7 18V5h10z"})),OC=Je(w.jsx("path",{d:"M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"})),zC=$.div`
@@ -508,7 +509,7 @@ transition : all .3s ease ;
     color: var(--color-info);
     background: var(--color-primary);
     display: none;
-    z-index: 9999;
+    z-index: 999;
     @media (max-width: 960px) {
          display: flex;
     }
@@ -521,6 +522,7 @@ transition : all .3s ease ;
     padding: 6px 0;
     opacity: 0.8;
     font-size: var(--text-sm);
+    font-weight: 900;
 `;function DC(){return w.jsxs(zC,{children:[w.jsxs(Xi,{children:[w.jsx("div",{children:"آگهی ها"})," ",w.jsx("div",{children:w.jsx(yg,{})})," "]}),w.jsxs(Xi,{children:[w.jsx("div",{children:" نشان ها"})," ",w.jsx("div",{children:w.jsx(LC,{})})," "]}),w.jsxs(Xi,{children:[w.jsx("div",{children:" ثبت آگهی"})," ",w.jsx("div",{children:w.jsx(OC,{})})," "]}),w.jsxs(Xi,{children:[w.jsx("div",{children:" چت و تماس"})," ",w.jsx("div",{children:w.jsx(wg,{})})," "]}),w.jsxs(Xi,{children:[w.jsx("div",{children:"دیوار من"})," ",w.jsx("div",{children:w.jsx(Sg,{})})," "]})]})}const Cg=Je(w.jsx("path",{d:"M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"})),BC="/Divar-clone/assets/real-estate.efdfc654-DrPzjSYZ.png",UC="/Divar-clone/assets/vehicles.e236aaef-DGd1fIJW.png",HC="/Divar-clone/assets/electronic-devices.a8f529dd-xqQ8e_jY.png",WC="/Divar-clone/assets/home-kitchen.db87dd2e-DAWNiO2-.png",VC="/Divar-clone/assets/services.ab181eb2-D6wUsvXg.png",_C="/Divar-clone/assets/personal-goods.9d865d33-Bt-o4tgV.png",QC="/Divar-clone/assets/entertainment.2ee67eb3-CxnGbYOc.png",$C="/Divar-clone/assets/tools-materials-equipment.a5381fdd-D5Pqco2m.png",KC="/Divar-clone/assets/jobs.b7dec5b8-04gBNLs5.png",kg=[{id:1,title:"املاک",image:BC,subCategories:[{id:11,title:"فروش مسکونی",items:["آپارتمان","خانه و ویلا","زمین و ملک کلنگی"]},{id:12,title:"اجاره مسکونی",items:["آپارتمان","خانه و ویلا"]},{id:13,title:"فروش اداری و تجاری",items:["دفتر کار، اتاق اداری، مطب","مغازه و غرفه","صنعتی، کشاورزی، تجاری"]},{id:14,title:"اجاره اداری و تجاری",items:["دفتر کار، اتاق اداری، مطب","مغازه و غرفه","صنعتی، کشاورزی، تجاری"]},{id:15,title:"اجاره کوتاه مدت",items:["آپارتمان و سوئیت","ویلا و باغ","دفتر کار و فضای آموزشی"]},{id:16,title:"پروژه‌های ساخت و ساز",items:["مشارکت در ساخت","پیش فروش"]}]},{id:2,title:"وسایل نقلیه",image:UC,subCategories:[{id:21,title:"خودرو",items:["سواری و وانت","کلاسیک","اجاره‌ای","سنگین"]},{id:22,title:"موتورسیکلت",items:["موتورسیکلت"]},{id:23,title:"قطعات و لوازم جانبی",items:["قطعات یدکی و لوازم جانبی"]},{id:24,title:"سایر وسایل نقلیه",items:["قایق و سایر وسایل نقلیه"]}]},{id:3,title:"کالای دیجیتال",image:HC,subCategories:[{id:31,title:"موبایل و تبلت",items:["موبایل","تبلت","لوازم جانبی موبایل و تبلت","سیم کارت"]},{id:32,title:"رایانه",items:["رایانه همراه","رایانه رومیزی","قطعات و لوازم جانبی","مودم و تجهیزات شبکه","پرینتر، اسکنر، کپی، فکس"]},{id:33,title:"کنسول و بازی",items:["کنسول، بازی‌های ویدئویی و آنلاین"]},{id:34,title:"صوتی و تصویری",items:["فیلم و موسیقی","دوربین عکاسی و فیلم‌برداری","پخش‌کننده همراه","سیستم صوتی خانگی","پخش‌کننده DVD و ویدیو","تلویزیون و پروژکتور","دوربین مداربسته"]},{id:35,title:"تلفن رومیزی",items:["تلفن رومیزی"]}]},{id:4,title:"خانه و آشپزخانه",image:WC,subCategories:[{id:41,title:"لوازم خانگی برقی",items:["یخچال و فریزر","آب سردکن و تصفیه آب","ماشین لباسشویی و خشک‌کن لباس","ماشین ظرفشویی","جاروبرقی، جارو شارژی، بخارشو","اتو و لوازم اتو","آبمیوه‌گیر و آب مرکبات‌گیر","خردکن، آسیاب، غذاساز","سماور، چای‌ساز، قهوه‌ساز","اجاق گاز و لوازم برقی پخت و پز","هود","سایر لوازم برقی"]},{id:42,title:"ظروف و لوازم آشپزخانه",items:["سفره، حوله، دستمال آشپزخانه","آب چکان و نظم دهنده ظروف","قوری، کتری، قهوه ساز دستی","ظروف سرو و پذیرایی","ظروف نگهدارنده، پلاستیکی، یکبار مصرف","ظروف پخت و پز"]},{id:43,title:"خوردنی و آشامیدنی",items:["خوردنی و آشامیدنی"]},{id:44,title:"خیاطی و بافتنی",items:["چرخ خیاطی و ریسندگی","لوازم خیاطی و بافتنی"]},{id:45,title:"مبلمان و صنایع چوب",items:["مبلمان خانگی و میز عسلی","میز و صندلی غذاخوری","بوفه، ویترین، کنسول","کتابخانه، شلف، قفسه‌های دیواری","جاکفشی، کمد، دراور","تخت و سرویس خواب","میز تلفن","میز تلویزیون","میز تحریر و کامپیوتر","مبلمان اداری","صندلی و نیمکت"]}]},{id:5,title:"خدمات",image:VC,subCategories:[{id:51,title:"خدمات خودرو",items:["موتور و ماشین"]},{id:52,title:"خدمات رویداد",items:["پذیرایی، مراسم"]},{id:53,title:"خدمات دیجیتال",items:["رایانه‌ای و موبایل"]},{id:54,title:"خدمات مالی",items:["مالی، حسابداری، بیمه"]},{id:57,title:"خدمات زیبایی",items:["آرایشگری و زیبایی"]},{id:58,title:"خدمات نظافتی",items:["نظافت"]}]},{id:6,title:"وسایل شخصی",image:_C,subCategories:[{id:61,title:"کیف، کفش، لباس",items:["کیف، کفش، کمربند","لباس","کفش و لباس بچه"]},{id:62,title:"زیورآلات و اکسسوری",items:["زیورآلات و اکسسوری","ساعت","جواهرات","بدلیجات"]},{id:63,title:"آرایشی و بهداشتی",items:["آرایشی، بهداشتی، درمانی"]},{id:64,title:"وسایل بچه",items:["اسباب‌بازی بچه","کالسکه و لوازم جانبی","تخت و صندلی بچه","اسباب و اثاث بچه"]},{id:65,title:"لوازم تحریر",items:["لوازم‌التحریر"]}]},{id:7,title:"سرگرمی",image:QC,subCategories:[{id:71,title:"بلیت و تور",items:["بلیت","کنسرت","تئاتر و سینما","کارت هدیه و تخفیف"]},{id:72,title:"کتاب و مجله",items:["کتاب و مجله","آموزشی","ادبی","تاریخی","مذهبی","مجلات"]},{id:73,title:"دوچرخه و اسکوتر",items:["دوچرخه، اسکیت، اسکوتر"]},{id:74,title:"حیوانات",items:["گربه","موش و خرگوش","خزنده","پرنده","ماهی","لوازم جانبی","حیوانات مزرعه","سگ"]},{id:75,title:"کلکسیون",items:["سکه، تمبر، اسکناس","اشیاء عتیقه"]},{id:76,title:"آلات موسیقی",items:["گیتار، بیس، امپلیفایر","سازهای بادی","پیانو، کیبورد، آکاردئون","سازهای سنتی","درام و پرکاشن","ویولن"]}]},{id:8,title:"تجهیزات صنعتی",image:$C,subCategories:[{id:81,title:"تجهیزات ساختمانی",items:["مصالح و تجهیزات ساختمان","ابزارآلات"]},{id:82,title:"ماشین‌آلات صنعتی",items:["ماشین‌آلات صنعتی"]},{id:83,title:"تجهیزات کسب و کار",items:["تجهیزات کسب‌وکار","پزشکی","فروشگاه و مغازه","کافی‌شاپ و رستوران","آرایشگاه و سالن‌های زیبایی","دفتر کار"]},{id:84,title:"عمده فروشی",items:["عمده‌فروشی"]}]},{id:9,title:"استخدام و کاریابی",image:KC,subCategories:[{id:91,title:"استخدام",items:["اداری و مدیریت","سرایداری و نظافت","معماری، عمران و ساختمانی","خدمات فروشگاه و رستوران","رایانه و فناوری اطلاعات","مالی، حسابداری، حقوقی","بازاریابی و فروش","صنعتی، فنی، مهندسی","آموزشی","حمل و نقل","درمانی، زیبایی، بهداشتی","هنری و رسانه"]}]}],YC=$.div`
     display: flex;
     position: absolute;
@@ -755,10 +757,10 @@ display: flex;
     font-size: var(--text-xs);
     color: var(--color-info);
 `,Mk=$.img`
-    width: 35%;
+    width: 50%;
     object-fit: cover;
 `,Nk=$.div`
-   position: absolute;
+   position: fixed;
     width: 100%;
     display: flex;
     align-items: center;
@@ -767,7 +769,7 @@ display: flex;
     bottom: 0;
     height: 80%;
     left: 0;
-    z-index: 9998;
+    z-index: 9999;
     overflow: scroll;
     background: var(--color-secondary);
 
@@ -775,7 +777,9 @@ display: flex;
     width:  100%;
    text-align: center;
     `,Uh=$.div`
-    font-size: var(--text-lg);
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 900;
     `,Hh=$.div`
     width: max-content;
     display: flex;
@@ -811,7 +815,9 @@ display: flex;
     padding: 6px 10px;
     background:var(--color-subtitle);
     border-radius: 8px;
+    font-size: 24px;
     color: var(--color-info);
+    font-weight: 900;
 `,_h=$.img`
     width: 40px;
     object-fit: cover;
@@ -826,6 +832,7 @@ display: flex;
     flex-direction: column;
     padding: 10px 14px;
     bottom: 0;
+    font-size: 24px;
     left: 0;
     z-index: 9999;
     background: var(--color-secondary);
