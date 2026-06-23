@@ -13,7 +13,7 @@ const LocationWrapper = styled.div`
   background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
-     z-index: 9999;
+  z-index: 9999;
   position: fixed;
 
   animation: animate 0.5s ease;
@@ -31,6 +31,7 @@ const LocationWrapper = styled.div`
       width: 100vw;
       height: 100%;
       padding: 0 10px;
+      font-size: var(--text-xl);
   }
 `;
 
@@ -82,6 +83,7 @@ const SelectLocationSearchBox = styled.div`
 const SelectLocationSearchBoxInput = styled.input`
   width: 95%;
   background-color: inherit;
+  font-size: var(--text-lg);
   color: var(--color-info);
 `;
 const SelectLocationSearchBoxIcon = styled.div`
@@ -102,18 +104,18 @@ align-items: center;
   }
 `
 const SelectedCityItem = styled.div`
-    width: 20%;
+    width:  max-content;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 8px 2px;
     cursor: pointer;
+    padding: 10px;
     font-size: var(--text-md);
    border: 1px solid var(--color-accent);
    color: var(--color-accent);
    border-radius: 25px;
-   padding: 10px;
    font-weight: (--font-extrabold);
 `
 const SelectLocationList = styled.div`
@@ -172,7 +174,7 @@ const LocationAccentBtn = styled.button`
   padding: 8px 16px;
   border: 1px solid var(--color-info);
   color: var(--color-info);
-font-size: var(--text-base);
+font-size: var(--text-lg);
 
 `;
 const LocationCancelBtn = styled.button`
@@ -180,7 +182,7 @@ const LocationCancelBtn = styled.button`
   color: var(--color-info);
   cursor: pointer;
   padding: 8px 16px;
-font-size: var(--text-base);
+font-size: var(--text-lg);
 transition : all .3s ease ; 
 
 `;

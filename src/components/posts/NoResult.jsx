@@ -9,7 +9,7 @@ const NoResultWrapper = styled.div`
 `;
 function NoResult() {
   return (
-     <NoResultWrapper >😕 هیچ آگهی در این شهر یافت نشد</NoResultWrapper>
+     <NoResultWrapper > هیچ آگهی در این شهر یافت نشد</NoResultWrapper>
   )
 }
 

@@ -15,7 +15,7 @@ const MobileNavbarWrapper = styled.div`
     color: var(--color-info);
     background: var(--color-primary);
     display: none;
-    z-index: 9999;
+    z-index: 999;
     @media (max-width: 960px) {
          display: flex;
     }
@@ -29,6 +29,7 @@ const MobileNavbarItem = styled.div`
     padding: 6px 0;
     opacity: 0.8;
     font-size: var(--text-sm);
+    font-weight: 900;
 `
 function MobileNavbar() {
   return (

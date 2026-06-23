@@ -31,12 +31,12 @@ const MoblieMenuItemTitle =styled.div`
     color: var(--color-info);
 `
 const MoblieMenuItemImage = styled.img`
-    width: 35%;
+    width: 50%;
     object-fit: cover;
 `
 
 const SubmenuWrapper = styled.div`
-   position: absolute;
+   position: fixed;
     width: 100%;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ const SubmenuWrapper = styled.div`
     bottom: 0;
     height: 80%;
     left: 0;
-    z-index: 9998;
+    z-index: 9999;
     overflow: scroll;
     background: var(--color-secondary);
 
@@ -55,7 +55,9 @@ const SubmenuHeader = styled.div`
    text-align: center;
     `
 const SubmenuTitle = styled.div`
-    font-size: var(--text-lg);
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 900;
     `
 const SubmenuCloseIcon = styled.div`
     width: max-content;
@@ -94,7 +96,9 @@ const SubmenuItems = styled.div`
     padding: 6px 10px;
     background:var(--color-subtitle);
     border-radius: 8px;
+    font-size: 24px;
     color: var(--color-info);
+    font-weight: 900;
 `
 const SubmenuItemsIcon = styled.img`
     width: 40px;
@@ -112,6 +116,7 @@ const SubmenuItemWrapper = styled.div`
     flex-direction: column;
     padding: 10px 14px;
     bottom: 0;
+    font-size: 24px;
     left: 0;
     z-index: 9999;
     background: var(--color-secondary);

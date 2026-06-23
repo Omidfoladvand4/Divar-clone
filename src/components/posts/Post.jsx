@@ -32,7 +32,6 @@ const CardImageBox = styled.div`
   width: 30%;
   height: 130px;
   position: relative;
-  flex-shrink: 0;
     @media (max-width: 480px) {
      width: 35%;
      height: 100px;
