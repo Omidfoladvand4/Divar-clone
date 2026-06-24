@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import { categories } from "../services/menuData/menuIcons"
 import { useEffect, useState } from "react"
-import {  useNavigate } from "react-router-dom"
-import { useCity } from "../context/Cities"
 const SidebarWrapper = styled.div`
     position: fixed;
     width: 22%;
@@ -61,6 +59,8 @@ const PriceFilterTitle = styled.div`
 `
 const FormSection = styled.div`
     display: flex;
+    align-items: center;
+    gap: 10px;
     width: 80%;
 `
 const InputForm = styled.input`
@@ -71,6 +71,7 @@ const InputForm = styled.input`
     transition: all 0.3s ease;
     border-radius: 4px;
     color: var(--color-info);
+    
     &:focus{
         border: 1px solid var(--color-accent);
     }
@@ -83,6 +84,8 @@ const ToSection = styled.div`
    display :flex ;
    margin-top: 14px;
     width: 80%;
+     align-items: center;
+    gap: 10px;
 
 `
 const InputTo = styled.input` 
