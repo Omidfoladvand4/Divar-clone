@@ -166,12 +166,12 @@ function Home() {
 
         {hasMore && visibleData.length > 0 && (
           <LoaderContainer ref={loaderRef}>
-            {loadingMore ? '⏳ در حال بارگذاری...' : '⬇️ بیشتر'}
+            {loadingMore ? ' در حال بارگذاری...' : ' بیشتر'}
           </LoaderContainer>
         )}
 
         {!hasMore && visibleData.length > 0 && (
-          <LoaderContainer>✅ همه آگهی‌ها بارگذاری شد</LoaderContainer>
+          <LoaderContainer> همه آگهی‌ها بارگذاری شد</LoaderContainer>
         )}
       </MainContent>
     </HomeWrapper>

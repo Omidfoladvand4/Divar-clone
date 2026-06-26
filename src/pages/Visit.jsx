@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { adsData } from "../services/fakePosts";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import Slider from '../components/Slider'
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import dayjs from "dayjs";
@@ -16,13 +17,21 @@ dayjs.locale("fa");
 const VisitPostWrapper = styled.div`
   width: 80%;
   margin: 80px auto;
+  @media (max-width: 480px) {
+     width: 100%;
+  }
 `;
-
+const NavbarWrapper = styled.div`
+`
 const VisitPostContentWrapper = styled.div`
   display: flex;
   padding: 20px 35px;
   gap: 5%;
   flex-wrap: wrap;
+  @media (max-width: 480px) {
+      flex-direction: column-reverse;
+      padding: 0;
+  }
 `;
 
 const VisitPostContentbreadcrumbs = styled.div`
@@ -31,6 +40,7 @@ const VisitPostContentbreadcrumbs = styled.div`
   gap: 20px;
   font-size: var(--text-xs);
   padding: 12px 16px;
+  order: -1;
   svg {
     font-size: var(--text-xs);
   }
@@ -65,6 +75,9 @@ const PostDateInformation = styled.div`
   color: var(--color-subtitle);
   cursor: pointer;
   margin-top: 8px;
+   @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const PostDateInfomarionSumMenu = styled.div`
@@ -89,6 +102,9 @@ const PostWarning = styled.div`
     align-items: center;
     gap: 4px;
   }
+   @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const PostInformation = styled.div`
@@ -99,6 +115,9 @@ const PostInformation = styled.div`
   flex-direction: column;
   margin-top: 12px;
   padding: 16px 0;
+   @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const PostInformationHeader = styled.div`
@@ -199,10 +218,17 @@ const PostTd = styled.td`
 
 const VisitPostContentRightSection = styled.div`
   width: 45%;
+  @media (max-width: 480px) {
+     width: 100%;
+     padding: 16px;
+  }
 `;
 
 const VisitPostContentLeftSection = styled.div`
   width: 45%;
+    @media (max-width: 480px) {
+     width: 100%;
+  }
 `;
 
 const VisitPostMianImage = styled.img`
@@ -257,7 +283,9 @@ function Visit() {
 
   return (
     <VisitPostWrapper>
-      <Navbar />
+       <NavbarWrapper>
+         <Navbar />
+       </NavbarWrapper>
 
       {/* ===== برادکام ===== */}
       <VisitPostContentbreadcrumbs>
@@ -333,7 +361,7 @@ function Visit() {
         </VisitPostContentRightSection>
 
         <VisitPostContentLeftSection>
-          <VisitPostMianImage src={post.image} alt={post.title} />
+           <Slider images= {post.images} />
           <VisitPostImageBox>
              <VisitpostImage></VisitpostImage>
           </VisitPostImageBox>

@@ -12,6 +12,14 @@ export const adsData = [
     district: 'نیاوران',
     description: 'آپارتمان نوساز با دید عالی به کوه، پارکینگ، انباری، آسانسور',
     image: 'https://picsum.photos/seed/real1/400/300',
+      images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2026-06-23',
     views: 245,
@@ -27,6 +35,14 @@ export const adsData = [
     district: 'مهرشهر',
     description: 'ویلا با استخر و باغچه بزرگ، ۳ طبقه، ۵ خوابه',
     image: 'https://picsum.photos/seed/real2/400/300',
+          images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-06-19',
     views: 189,
@@ -42,6 +58,14 @@ export const adsData = [
     district: 'مرکزی',
     description: 'زمین با سند تک برگ، کاربری مسکونی، نزدیک به جاده',
     image: 'https://picsum.photos/seed/real3/400/300',
+          images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: false,
     date: '2024-06-18',
     views: 67,
@@ -57,6 +81,14 @@ export const adsData = [
     district: 'بازار',
     description: 'مغازه با ۱۵ متر جلوخان، مناسب هر نوع کسب و کار',
     image: 'https://picsum.photos/seed/real4/400/300',
+          images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-06-17',
     views: 312,
@@ -72,6 +104,14 @@ export const adsData = [
     district: 'جردن',
     description: 'آپارتمان لوکس با امکانات کامل، پارکینگ اختصاصی',
     image: 'https://picsum.photos/seed/real5/400/300',
+          images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-06-16',
     views: 178,
@@ -87,6 +127,14 @@ export const adsData = [
     district: 'ونک',
     description: 'دفتر کار مدرن با امکانات کامل، پارکینگ اختصاصی',
     image: 'https://picsum.photos/seed/real6/400/300',
+          images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-06-15',
     views: 95,
@@ -102,6 +150,14 @@ export const adsData = [
     district: 'پاسداران',
     description: 'زمین کلنگی با مجوز ساخت ۶ طبقه',
     image: 'https://picsum.photos/seed/real7/400/300',
+    images : ['https://picsum.photos/seed/real7/400/300' , 
+           'https://picsum.photos/seed/real7/400/300' , 
+           'https://picsum.photos/seed/real7/400/300' , 
+           'https://picsum.photos/seed/real7/400/300' , 
+           'https://picsum.photos/seed/real7/400/300' , 
+
+             
+            ],
     hasPhoto: false,
     date: '2024-06-14',
     views: 56,
@@ -2583,6 +2639,14 @@ export const adsData = [
     district: 'نقش جهان',
     description: 'میز آرایش با کشو و آینه',
     image: 'https://picsum.photos/seed/home22/400/300',
+      images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: false,
     date: '2024-05-27',
     views: 145,
@@ -2598,6 +2662,14 @@ export const adsData = [
     district: 'ونک',
     description: 'اتو با قابلیت بخار عمودی',
     image: 'https://picsum.photos/seed/home23/400/300',
+      images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-05-26',
     views: 234,
@@ -2613,6 +2685,14 @@ export const adsData = [
     district: 'جردن',
     description: 'شومیزه با شعله مصنوعی',
     image: 'https://picsum.photos/seed/home24/400/300',
+    images : [
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+    'https://picsum.photos/seed/home24/400/300',
+       
+    ],
     hasPhoto: true,
     date: '2024-05-25',
     views: 345,
