@@ -18,7 +18,7 @@ const MainContent = styled.div`
   padding: 20px;
   margin-right: 22%;
   margin-top: 80px;
-  @media (max-width: 480px) {
+  @media (max-width: 780px) {
     width: 100%;
     margin-right: 0;
   }
@@ -126,7 +126,7 @@ function Home() {
       <MainContent>
         <h4>
           آگهی‌ها و نیازمندی‌ها در{' '}
-          {cityParam === 'iran' ? 'همه شهرها' : cityParam}
+          {cityParam === 'iran' ? 'کل شهر های ایران' : cityParam}
         </h4>
 
         <Posts>

@@ -7,8 +7,7 @@ const AdsGrid = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px 0;
-  @media (max-width: 480px) {
-      width: 100%;
+  @media (max-width: 800px) {
       margin-bottom: 70px;
   }
 `;

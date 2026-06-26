@@ -3,12 +3,12 @@ import { categories } from "../services/menuData/menuIcons"
 import { useEffect, useState } from "react"
 const SidebarWrapper = styled.div`
     position: fixed;
-    width: 22%;
+    width: 18%;
     height: 90%;
     top: 75px;
     right: 0;
     overflow: scroll;
-    @media (max-width: 800px) {
+    @media (max-width: 960px) {
        display: none;
     }
 `

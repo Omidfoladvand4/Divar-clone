@@ -1,10 +1,11 @@
 :root {
-
+ /* --dark mode */
   --color-primary: #242424;
   --color-secondary: #3F3F3F;
   --color-accent: #D83939;
   --color-info: #E3E3E3;
-  --color-subtitle: #6d767a;
+  --color-subtitle: #6d767a; 
+
   
   --text-xs: clamp(11px, 3vw, 14px);
   --text-sm: clamp(13px, 3.5vw, 16px);

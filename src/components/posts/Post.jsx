@@ -11,8 +11,9 @@ const AdCard = styled.div`
   display: flex;
   align-items: center;
   background: var(--color-primary);
-  width: calc(50% - 20px);
-  min-width: 360px;
+  width: calc(30% - 20px);
+  min-width: 320px;
+  max-width: 600px;
   border-radius: 2px;
   border: 1px solid var(--color-subtitle);
   overflow: hidden;
@@ -23,14 +24,16 @@ const AdCard = styled.div`
   padding: 12px 14px;
   cursor: pointer;
   
-  @media (max-width: 480px) {
-    width: calc(100% - 20px);
+  @media (max-width: 600px) {
+    width: calc(100% - 10px);
+    border: none;
+    border-bottom: 1px solid var(--color-subtitle);
   }
 `;
 
 const CardImageBox = styled.div`
-  width: 30%;
-  height: 130px;
+  width: 40%;
+  height: 110px;
   position: relative;
     @media (max-width: 480px) {
      width: 35%;
@@ -61,8 +64,8 @@ const ImageCount = styled.div`
 `;
 
 const NoImage = styled.div`
-  width: 30%;
-  height: 130px;
+  width: 40%;
+  height: 110px;
   flex-shrink: 0;
   background: var(--color-subtitle);
   display: flex;
@@ -79,6 +82,7 @@ const NoImage = styled.div`
 `;
 
 const CardContent = styled.div`
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: flex-start;
@@ -87,8 +91,9 @@ const CardContent = styled.div`
   flex-grow: 1;
 `;
 
-const CardTitle = styled.h3`
+const CardTitle = styled.h4`
   width: 100%;
+  display: block;
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-info);
@@ -96,7 +101,6 @@ const CardTitle = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 100%;
   @media (max-width: 480px) {
   font-size: var(--text-base);
     
@@ -104,7 +108,7 @@ const CardTitle = styled.h3`
 `;
 
 const CardPrice = styled.div`
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--color-subtitle);
   margin-bottom: 6px;

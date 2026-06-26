@@ -16,12 +16,12 @@ const MobileNavbarWrapper = styled.div`
     background: var(--color-primary);
     display: none;
     z-index: 999;
-    @media (max-width: 960px) {
+    @media (max-width: 900px) {
          display: flex;
     }
 `
 const MobileNavbarItem = styled.div`
-    width: 25%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
