@@ -1,12 +1,16 @@
 import styled from "styled-components"
 import { categories } from "../services/menuData/menuIcons"
 import { useEffect, useState } from "react"
+import SidebarFooter from "./sidbar/SidebarFooter"
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 const SidebarWrapper = styled.div`
     position: fixed;
     width: 18%;
     height: 90%;
     top: 75px;
     right: 0;
+    padding: 10px 12px;
+    gap: 24px;
     overflow: scroll;
     @media (max-width: 1024px) {
        display: none;
@@ -19,13 +23,14 @@ const SidebarCategory = styled.div`
    justify-content: flex-start;
    gap: 6px;
    margin: 16px;
-   padding-bottom: 24px;
    flex-direction: column;
    border-bottom: 1px solid var(--color-subtitle);
 `
 const SidebarFilters = styled.div`
 width: 100%;
 margin: 16px;
+   border-bottom: 1px solid var(--color-subtitle);
+
 `
 const SidebarItem = styled.div`
 display: flex;
@@ -52,7 +57,7 @@ align-items: start;
 flex-direction : column;
 gap: 6px;
 padding-bottom: 24px;
-border-bottom: 1px solid var(--color-info);
+border-bottom: 1px solid var(--color-subtitle);
 `
 const PriceFilterTitle = styled.div`
     
@@ -66,7 +71,7 @@ const FormSection = styled.div`
 const InputForm = styled.input`
     width: 100%;
     background: transparent;
-    border: 1px solid var(--color-info);
+    border: 1px solid var(--color-subtitle);
     padding: 8px 8px;
     transition: all 0.3s ease;
     border-radius: 4px;
@@ -91,7 +96,7 @@ const ToSection = styled.div`
 const InputTo = styled.input` 
     width: 100%;
     background: transparent;
-    border: 1px solid var(--color-info);
+    border: 1px solid var(--color-subtitle);
     padding: 8px 8px;
     transition: all 0.3s ease;
     color: var(--color-info);
@@ -112,7 +117,7 @@ const ImageFilter = styled.div`
    user-select: none;
    cursor: pointer;
    padding: 16px 0;
-   border-bottom: 1px solid var(--color-info);
+   border-bottom: 1px solid var(--color-subtitle);
 `
 const FilterLabel = styled.div`
 `
@@ -129,7 +134,7 @@ const FilterRecentAdsTitle = styled.div`
 const FilterRecentSelect = styled.select`
 width: 80%;
 background: var(--color-primary);
-border: 1px solid var(--color-info);
+border: 1px solid var(--color-subtitle);
 color: var(--color-info);
 padding: 8px 12px;
 cursor: pointer;
@@ -177,6 +182,22 @@ const Span = styled.div`
     }
   }};
 `;
+const SidebarExtentions = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   cursor: pointer;
+   padding : 16px 0 ;
+
+`
+const SidebarExtentionsLabel = styled.div`
+   
+`
+const SidebarExtentionsStatus = styled.div`
+   color: var(--color-subtitle);
+   display: flex;
+`
+
 function Sidebar({posts = [] , onFilterChange}) {
   const [hasImage, setHasImage] = useState(true);
   const [priceMin, setPriceMin] = useState('');
@@ -285,6 +306,11 @@ function Sidebar({posts = [] , onFilterChange}) {
             </FilterRecentSelect>
           </FilterRecentAds>
         </SidebarFilters>
+        <SidebarExtentions>
+          <SidebarExtentionsLabel>افزونه ها</SidebarExtentionsLabel>
+          <SidebarExtentionsStatus>انتخاب  <ArrowBackIosIcon /> </SidebarExtentionsStatus>
+        </SidebarExtentions>
+        <SidebarFooter />
     </SidebarWrapper>
   )
 }
