@@ -10,7 +10,7 @@ dayjs.locale('fa');
 
 const AdCard = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background: var(--color-primary);
   width: calc(50% - 20px);
   min-width: 320px;
@@ -19,8 +19,6 @@ const AdCard = styled.div`
   border: 1px solid var(--color-subtitle);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: flex-start;
   transition: all 0.3s ease;
   padding: 12px 14px;
   cursor: pointer;
@@ -133,7 +131,7 @@ const CardDate = styled.span`
 function Post({ ad }) {
   const relativeDate = dayjs(ad.date).fromNow();
   const navigate = useNavigate()
-  const formattedDate = dayjs(ad.date).locale('fa').format('DD MMMM YYYY');
+
   const visitPostHandler = (id) => {
       navigate(`/v/${id}`)
   }
@@ -150,8 +148,8 @@ function Post({ ad }) {
 
       {ad.hasPhoto && ad.image ? (
         <CardImageBox>
-          <CardImage src={ad.image} alt={ad.title} />
-          <ImageCount>2</ImageCount>
+          <CardImage src={ad.image} alt={ad.title}  />
+          <ImageCount>{2}</ImageCount>
         </CardImageBox>
       ) : (
         <NoImage>بدون عکس</NoImage>

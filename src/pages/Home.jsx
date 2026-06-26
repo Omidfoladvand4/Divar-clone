@@ -38,7 +38,6 @@ const LoaderContainer = styled.div`
   color: var(--color-subtitle);
 `;
 
-
 function Home() {
   const params = useParams();
   const cityParam = params.City || 'iran';
@@ -50,7 +49,8 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasMore, setHasMore] = useState(true);
-  const observerRef = useRef();
+  const observerRef = useRef(null);
+  const loaderRef = useRef(null);
 
   useEffect(() => {
     setLoading(true);
@@ -66,6 +66,7 @@ function Home() {
     setAllData(filtered);
     setPage(1);
     setHasMore(true);
+    setVisibleData([]);
     setLoading(false);
   }, [cityParam]);
 
@@ -81,10 +82,23 @@ function Home() {
     if (loadingMore || !hasMore) return;
     setLoadingMore(true);
     setPage((prev) => prev + 1);
-    setLoadingMore(false);
   }, [loadingMore, hasMore]);
 
   useEffect(() => {
+    if (page > 1) {
+      setLoadingMore(false);
+    }
+  }, [page]);
+
+  useEffect(() => {
+    if (loadingMore || !hasMore || visibleData.length === 0) {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && hasMore && !loadingMore) {
@@ -94,18 +108,31 @@ function Home() {
       { threshold: 0.1, rootMargin: '100px' }
     );
 
-    if (observerRef.current) {
-      observer.observe(observerRef.current);
+    observerRef.current = observer;
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
     }
 
-    return () => observer.disconnect();
-  }, [hasMore, loadingMore, loadMore]);
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+    };
+  }, [hasMore, loadingMore, loadMore, visibleData.length]);
 
   const handleFilterChange = (filteredPosts) => {
     setAllData(filteredPosts);
     setPage(1);
     setHasMore(true);
     setVisibleData([]);
+    setLoadingMore(false);
+    
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current = null;
+    }
   };
 
   if (loading) {
@@ -126,7 +153,7 @@ function Home() {
       <MainContent>
         <h4>
           آگهی‌ها و نیازمندی‌ها در{' '}
-          {cityParam === 'iran' ? 'کل شهر های ایران' : cityParam}
+          {cityParam === 'iran' ? 'کل شهرهای ایران' : cityParam}
         </h4>
 
         <Posts>
@@ -138,8 +165,8 @@ function Home() {
         </Posts>
 
         {hasMore && visibleData.length > 0 && (
-          <LoaderContainer ref={observerRef}>
-            {loadingMore ? '⏳ در حال بارگذاری...' : ''}
+          <LoaderContainer ref={loaderRef}>
+            {loadingMore ? '⏳ در حال بارگذاری...' : '⬇️ بیشتر'}
           </LoaderContainer>
         )}
 
