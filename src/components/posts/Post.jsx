@@ -11,9 +11,9 @@ const AdCard = styled.div`
   display: flex;
   align-items: center;
   background: var(--color-primary);
-  width: calc(30% - 20px);
+  width: calc(50% - 20px);
   min-width: 320px;
-  max-width: 600px;
+  max-width: 360px;
   border-radius: 2px;
   border: 1px solid var(--color-subtitle);
   overflow: hidden;

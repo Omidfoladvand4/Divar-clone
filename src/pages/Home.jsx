@@ -18,7 +18,7 @@ const MainContent = styled.div`
   padding: 20px;
   margin-right: 22%;
   margin-top: 80px;
-  @media (max-width: 780px) {
+  @media (max-width: 1024px) {
     width: 100%;
     margin-right: 0;
   }

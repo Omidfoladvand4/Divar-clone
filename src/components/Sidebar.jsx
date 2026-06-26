@@ -8,7 +8,7 @@ const SidebarWrapper = styled.div`
     top: 75px;
     right: 0;
     overflow: scroll;
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
        display: none;
     }
 `

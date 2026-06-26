@@ -19,6 +19,7 @@ const MoblieMenuWrapper = styled.div`
 `
 const MoblieMenuItem = styled.div`
     width: 33%;
+    max-width: 95px;
     display: flex;
     align-items: center;
     justify-content: center;
