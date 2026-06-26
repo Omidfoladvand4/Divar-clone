@@ -14,7 +14,7 @@ export default function AppRoutes() {
       <Route path="/:City/"  element={<Home />} />
       <Route path="/Category/:id" element={<Category />} />
       <Route path="/New" element={<New />} />
-      <Route path="/Visit" element={<Visit />} />
+      <Route path="/V/:id" element={<Visit />} />
       <Route path="/Chat" element={<Chat />} />
       <Route path="/Help" element={<Help />} />
       <Route path="*" element={<NotFound />} />

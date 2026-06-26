@@ -2,6 +2,7 @@ import styled from "styled-components";
 import dayjs from "dayjs";
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/fa';
+import { useNavigate } from "react-router-dom";
 
 
 dayjs.extend(relativeTime);
@@ -131,10 +132,13 @@ const CardDate = styled.span`
 
 function Post({ ad }) {
   const relativeDate = dayjs(ad.date).fromNow();
+  const navigate = useNavigate()
   const formattedDate = dayjs(ad.date).locale('fa').format('DD MMMM YYYY');
-
+  const visitPostHandler = (id) => {
+      navigate(`/v/${id}`)
+  }
   return (
-    <AdCard>
+    <AdCard onClick={() => visitPostHandler(ad.id)}>
       <CardContent>
         <CardTitle>{ad.title}</CardTitle>
         <CardMeta>

@@ -14,9 +14,9 @@ const HomeWrapper = styled.div`
 `;
 
 const MainContent = styled.div`
-  width: 78%;
+  flex-grow: 1;
   padding: 20px;
-  margin-right: 22%;
+  margin-right: 18%;
   margin-top: 80px;
   @media (max-width: 1024px) {
     width: 100%;
