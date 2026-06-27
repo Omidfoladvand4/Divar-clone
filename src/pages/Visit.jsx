@@ -143,6 +143,7 @@ const UserInformation = styled.div`
        bottom: 0;
        left: 0;
        padding: 10px ;
+       z-index: 999;
        div{
         width: 50%;
         color: var(--color-primary);
