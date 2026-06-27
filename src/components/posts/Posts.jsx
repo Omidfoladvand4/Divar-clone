@@ -9,6 +9,7 @@ const AdsGrid = styled.div`
   padding: 20px 0;
   @media (max-width: 800px) {
       margin-bottom: 70px;
+      padding:  12px 0;
   }
 `;
 function Posts({children}) {

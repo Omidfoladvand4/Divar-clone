@@ -8,6 +8,7 @@ import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
   width: 600px;
   height: 100%;
+  max-height: 600px;
   margin: 0 auto;
   padding: 10px 24px;
   background: var(--color-primary);
@@ -31,7 +32,7 @@ const LocationWrapper = styled.div`
       width: 100vw;
       height: 100%;
       padding: 0 10px;
-      font-size: var(--text-xl);
+      font-size: var(--text-sm);
   }
 `;
 
@@ -41,16 +42,17 @@ const Div = styled.div`
   top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const SelectLocationHeader = styled.div`
   width: 100%;
-  height: 28%;
+  padding: 12px 0;
   display: flex;
+  gap: 12px;
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
-  padding-bottom: 20px;
   border-bottom: 1px solid var(--color-info);
 `;
 const SelectLocationNavbar = styled.div`
@@ -74,7 +76,7 @@ const SelectLocationSearchBox = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-info);
-  padding: 10px 6px;
+  padding: 6px 4px;
   margin: 0 auto;
   &:focus-within {
     border-color: var(--color-accent);
@@ -83,7 +85,7 @@ const SelectLocationSearchBox = styled.div`
 const SelectLocationSearchBoxInput = styled.input`
   width: 95%;
   background-color: inherit;
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--color-info);
 `;
 const SelectLocationSearchBoxIcon = styled.div`
@@ -102,6 +104,21 @@ align-items: center;
   ::-webkit-scrollbar-track , ::-webkit-scrollbar-thumb , ::-webkit-scrollbar-thumb:hover {
     background-color: transparent !important;
   }
+`
+const InputSearchHint = styled.div`
+  width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 4px;
+   flex-direction: column;
+`
+const InputSearchHintTitle = styled.div`
+   font-weight: 900;
+`
+const InputSearchHint_hint = styled.div`
+   color: var(--color-subtitle);
+   font-weight: 600;
 `
 const SelectedCityItem = styled.div`
     width:  max-content;
@@ -124,7 +141,7 @@ const SelectLocationList = styled.div`
   align-items: center;
 `;
 const SelectLocationItem = styled.div`
- 
+  color: var(--color-subtitle);
 `;
 const SelectCityList = styled.div`
   width: 100%;
@@ -151,8 +168,8 @@ const SelectCityItem = styled.div`
 `;
 const SelectCityItemLabel = styled.label``;
 const SelecCityItemInput = styled.input`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: transparent;
   border: 1px solid var(--color-info);
   &:checked {
@@ -161,11 +178,14 @@ const SelecCityItemInput = styled.input`
 `;
 const LocationFooterBtns = styled.div`
   width: 100%;
-  height: 12%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 10px;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
   `;
 const LocationAccentBtn = styled.button`
   width: 40%;
@@ -250,7 +270,9 @@ const ChangeCityHandler = () => {
           <SelectLocationHeader>
             <SelectLocationNavbar>
               <SelectLocationTitle>انتخاب شهر</SelectLocationTitle>
+              {selected.length !== 0 && 
               <SelectLocationDeleteCityBtn onClick={() => setSelected([])}>حذف همه</SelectLocationDeleteCityBtn>
+               }
             </SelectLocationNavbar>
             <SelectLocationSearchBox>
               <SelectLocationSearchBoxInput
@@ -280,7 +302,7 @@ const ChangeCityHandler = () => {
           </SelectLocationHeader>
 
           <SelectCityList>
-            {filteredProvinces.map((province , index) => (
+            {filteredProvinces.length !== 0 ?  filteredProvinces.map((province , index) => (
               <>
                 <SelectCityTitle key={province + index}>{province.name}</SelectCityTitle>
                 {province.cities.map((cityItem, index) => (
@@ -296,7 +318,12 @@ const ChangeCityHandler = () => {
                   </SelectCityItem>
                 ))}
               </>
-            ))}
+            )) :  <InputSearchHint>
+                    <InputSearchHintTitle>نتیجه ای برای جستجوی شما پیدا نشد</InputSearchHintTitle>
+                    <InputSearchHint_hint>پیشنهاد می‌کنیم:</InputSearchHint_hint>
+                    <InputSearchHint_hint>نگارش کلمات خود را بررسی کنید؛</InputSearchHint_hint>
+                    <InputSearchHint_hint>کلمات کلیدی دیگری را انتخاب کنید.</InputSearchHint_hint>
+            </InputSearchHint>}
           </SelectCityList>
 
           <LocationFooterBtns>

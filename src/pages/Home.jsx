@@ -21,9 +21,12 @@ const MainContent = styled.div`
   @media (max-width: 1024px) {
     width: 100%;
     margin-right: 0;
+    margin-top: 12px;
   }
 `;
-
+const PostsTitle = styled.h4`
+   margin-bottom: 12px;
+`
 const LoadingText = styled.div`
   text-align: center;
   padding: 50px;
@@ -151,10 +154,10 @@ function Home() {
       <Sidebar posts={adsData} onFilterChange={handleFilterChange} />
 
       <MainContent>
-        <h4>
+        <PostsTitle>
           آگهی‌ها و نیازمندی‌ها در{' '}
           {cityParam === 'iran' ? 'کل شهرهای ایران' : cityParam}
-        </h4>
+        </PostsTitle>
 
         <Posts>
           {visibleData.length > 0 ? (

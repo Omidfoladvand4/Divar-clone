@@ -24,8 +24,9 @@ const AdCard = styled.div`
   cursor: pointer;
   
   @media (max-width: 600px) {
-    width: calc(100% - 10px);
+    width: 100%;
     border: none;
+    padding: 14px 0;
     border-bottom: 1px solid var(--color-subtitle);
   }
 `;
@@ -35,8 +36,8 @@ const CardImageBox = styled.div`
   height: 110px;
   position: relative;
     @media (max-width: 480px) {
-     width: 35%;
-     height: 100px;
+       width: 140px;
+     height: 140px;
   }
 `;
 
@@ -75,8 +76,8 @@ const NoImage = styled.div`
   font-size: 14px;
   border-radius: 4px;
   @media (max-width: 480px) {
-     width: 35%;
-     height: 100px;
+       width: 140px;
+       height: 140px;
   }
 `;
 
@@ -85,20 +86,25 @@ const CardContent = styled.div`
   height: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
   flex-grow: 1;
+  @media (max-width: 480px) {
+     padding: 0 8px;
+  }
+
 `;
 
 const CardTitle = styled.h4`
   width: 100%;
   display: block;
   font-size: var(--text-sm);
-  font-weight: 600;
   color: var(--color-info);
   margin: 0 0 6px 0;
   white-space: nowrap;
   overflow: hidden;
+  font-weight: 900;
+  word-spacing: .8px;
   text-overflow: ellipsis;
   @media (max-width: 480px) {
   font-size: var(--text-base);
@@ -108,7 +114,7 @@ const CardTitle = styled.h4`
 
 const CardPrice = styled.div`
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-subtitle);
   margin-bottom: 6px;
 `;
@@ -116,16 +122,16 @@ const CardPrice = styled.div`
 const CardMeta = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   flex-direction: column;
   font-size: 12px;
+  line-height: 2;
   color: var(--color-subtitle);
 `;
 
 const CardDate = styled.span`
   font-size: 11px;
   color: var(--color-subtitle);
-  opacity: 0.7;
+  font-weight: 600;
 `;
 
 function Post({ ad }) {
