@@ -11,6 +11,8 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import WarningAmberRoundedIcon from "@mui/icons-material/WarningAmberRounded";
 import BookmarkBorderRoundedIcon from "@mui/icons-material/BookmarkBorderRounded";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
+
+
 import "dayjs/locale/fa";
 dayjs.extend(relativeTime);
 dayjs.locale("fa");
@@ -32,6 +34,7 @@ const VisitPostContentWrapper = styled.div`
   @media (max-width: 480px) {
       flex-direction: column-reverse;
       padding: 0;
+      margin-top: 48px;
   }
 `;
 
@@ -42,7 +45,7 @@ const VisitPostContentbreadcrumbs = styled.div`
   gap: 20px;
   font-size: var(--text-xs);
   padding: 12px 16px;
-  order: -1;
+  font-weight: 700;
   svg {
     font-size: var(--text-xs);
   }
@@ -128,7 +131,30 @@ const PostInformationHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
+const UserInformation = styled.div`
+  display: flex;
+   gap: 16px;
+   @media (max-width: 480px) {
+       width: 100%;
+       position: fixed;
+       align-items: center;
+       justify-content: center;
+       background-color: var(--color-secondary);
+       bottom: 0;
+       left: 0;
+       padding: 10px ;
+       div{
+        width: 50%;
+        color: var(--color-primary);
+        background-color: var(--color-accent);
+        &:hover{
+          color: var(--color-primary);
+            background: rgb(219, 112, 125);
+          
+        }
+       }
+   }
+`
 const UserInformationBtn = styled.div`
   width: 120px;
   height: 40px;
@@ -189,7 +215,20 @@ const ChatUserBtn = styled.div`
     border-color: var(--color-info);
   }
 `;
-
+const PostInformationIcons = styled.div`
+  display: flex;
+  @media (max-width: 480px) {
+     width: 100%;
+     position: fixed;
+     align-items: center;
+     justify-content: space-between;
+     background-color: var(--color-secondary);
+     padding: 6px 4px;
+     top: 0;
+     left: 0;
+     z-index: 99;
+  }
+`
 const PostInformationIcon = styled.div`
   cursor: pointer;
   width: 40px;
@@ -206,6 +245,15 @@ const PostInformationIcon = styled.div`
     font-size: var(--text-base);
   }
 `;
+
+const PostInformationBackIcon = styled(PostInformationIcon)`
+  display: none;
+
+  @media (max-width: 480px) {
+     display: flex;
+     margin-right:  auto;
+  }
+`
 
 const PostTable = styled.table`
   width: 100%;
@@ -257,6 +305,8 @@ const VisitPostContentLeftSection = styled.div`
 
     @media (max-width: 480px) {
      width: 100%;
+     margin-top: 30px;
+
   }
 `;
 
@@ -345,14 +395,21 @@ function Visit() {
 
           <PostInformation>
             <PostInformationHeader>
-              <UserInformationBtn>اطلاعات تماس</UserInformationBtn>
-              <ChatUserBtn>چت</ChatUserBtn>
-              <PostInformationIcon>
+               <UserInformation>
+                <UserInformationBtn>اطلاعات تماس</UserInformationBtn>
+                 <ChatUserBtn>چت</ChatUserBtn>
+               </UserInformation>
+               <PostInformationIcons>
+                 <PostInformationIcon>
                 <BookmarkBorderRoundedIcon />
               </PostInformationIcon>
               <PostInformationIcon>
                 <ShareRoundedIcon />
               </PostInformationIcon>
+              <PostInformationBackIcon>
+                <ArrowBackIosIcon />
+              </PostInformationBackIcon>
+               </PostInformationIcons>
             </PostInformationHeader>
 
             <PostTable>
