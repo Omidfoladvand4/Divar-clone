@@ -15,11 +15,11 @@ import { useCity } from "../context/Cities";
 import SubMenu from "./SubMenu";
 const NavbarWrapper = styled.div`
   width: 100%;
+  padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 6px 8px;
   background-color: var(--color-primary);
   box-shadow: 0px 1px 2px var(--color-info);
   position: fixed;

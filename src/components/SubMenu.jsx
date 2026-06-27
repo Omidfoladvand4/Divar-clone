@@ -8,7 +8,7 @@ const SubMenuWrapper = styled.div`
     position: absolute;
     top: 100%;
     z-index: 999;
-    width: 80vw;
+    width: 75vw;
     background  : var(--color-secondary) ;
   box-shadow: 0px 0px 16px var(--color-subtitle) ;
     padding: 16px 14px;

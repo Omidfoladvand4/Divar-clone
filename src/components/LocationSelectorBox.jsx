@@ -14,7 +14,10 @@ const LocationWrapper = styled.div`
   background: var(--color-primary);
   box-shadow: 0px 0px 16px var(--color-subtitle) ,
    0px 0px 24px var(--color-info);
-  z-index: 9999;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  top: 0;
   position: fixed;
 
   animation: animate 0.5s ease;
@@ -30,7 +33,7 @@ const LocationWrapper = styled.div`
   }
   @media (max-width: 480px) {
       width: 100vw;
-      height: 100%;
+      max-height: 100%;
       padding: 0 10px;
       font-size: var(--text-sm);
   }

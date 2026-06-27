@@ -9,7 +9,6 @@ import Post from '../components/posts/Post';
 
 const HomeWrapper = styled.div`
   position: relative;
-  width: 100vw;
   display: flex;
 `;
 

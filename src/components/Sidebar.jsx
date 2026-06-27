@@ -24,6 +24,7 @@ const SidebarCategory = styled.div`
    gap: 6px;
    margin: 16px;
    flex-direction: column;
+   font-weight: 600;
    border-bottom: 1px solid var(--color-subtitle);
 `
 const SidebarFilters = styled.div`
@@ -34,7 +35,7 @@ margin: 16px;
 `
 const SidebarItem = styled.div`
 display: flex;
-font-size: var(--text-sm);
+font-size: var(--text-xs);
 color: var(--color-subtitle);
 cursor: pointer;
 transition: all .3s ease;
@@ -199,7 +200,7 @@ const SidebarExtentionsStatus = styled.div`
 `
 
 function Sidebar({posts = [] , onFilterChange}) {
-  const [hasImage, setHasImage] = useState(true);
+  const [hasImage, setHasImage] = useState(false);
   const [priceMin, setPriceMin] = useState('');
   const [priceMax, setPriceMax] = useState('');
   const [recentAds, setRecentAds] = useState('');
