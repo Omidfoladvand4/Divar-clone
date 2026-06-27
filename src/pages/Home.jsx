@@ -6,6 +6,8 @@ import { adsData } from '../services/fakePosts';
 import NoResult from '../components/posts/NoResult';
 import Posts from '../components/posts/Posts';
 import Post from '../components/posts/Post';
+import Navbar from '../components/Navbar';
+import MobileSubmenu from '../components/MobileSubmenu'
 
 const HomeWrapper = styled.div`
   position: relative;
@@ -140,6 +142,8 @@ function Home() {
   if (loading) {
     return (
       <HomeWrapper>
+        <Navbar />
+      <MobileSubmenu />
         <Sidebar posts={adsData} />
         <MainContent>
           <LoadingText>در حال بارگذاری آگهی‌ها...</LoadingText>
@@ -149,7 +153,10 @@ function Home() {
   }
 
   return (
+     <>
+      <MobileSubmenu />
     <HomeWrapper>
+      <Navbar />
       <Sidebar posts={adsData} onFilterChange={handleFilterChange} />
 
       <MainContent>
@@ -177,6 +184,7 @@ function Home() {
         )}
       </MainContent>
     </HomeWrapper>
+     </>
   );
 }
 

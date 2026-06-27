@@ -19,6 +19,7 @@ const VisitPostWrapper = styled.div`
   margin: 80px auto;
   @media (max-width: 480px) {
      width: 100%;
+     margin: 12px auto;
   }
 `;
 const NavbarWrapper = styled.div`
@@ -26,7 +27,7 @@ const NavbarWrapper = styled.div`
 const VisitPostContentWrapper = styled.div`
   display: flex;
   padding: 20px 35px;
-  gap: 5%;
+  gap: 12px;
   flex-wrap: wrap;
   @media (max-width: 480px) {
       flex-direction: column-reverse;
@@ -35,6 +36,7 @@ const VisitPostContentWrapper = styled.div`
 `;
 
 const VisitPostContentbreadcrumbs = styled.div`
+  width: 100vw;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -141,7 +143,33 @@ const UserInformationBtn = styled.div`
     background: rgb(219, 112, 125);
   }
 `;
-
+const PostItems = styled.div`
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 12px;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+  `
+const PostItem = styled.div`
+   width: 100%;
+   padding: 16px 12px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-bottom: 1px solid var(--color-subtitle);
+`
+const PostItemTitle = styled.div`
+  color: var(--color-subtitle);
+`
+const PostItemValue = styled.div`
+   color: var(--color-info);
+`
 const ChatUserBtn = styled.div`
   width: 120px;
   height: 40px;
@@ -217,7 +245,7 @@ const PostTd = styled.td`
 `;
 
 const VisitPostContentRightSection = styled.div`
-  width: 45%;
+ width: calc(50% - 6px);
   @media (max-width: 480px) {
      width: 100%;
      padding: 16px;
@@ -225,28 +253,13 @@ const VisitPostContentRightSection = styled.div`
 `;
 
 const VisitPostContentLeftSection = styled.div`
-  width: 45%;
+   width: calc(50% - 6px);
+
     @media (max-width: 480px) {
      width: 100%;
   }
 `;
 
-const VisitPostMianImage = styled.img`
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
-`;
-const VisitPostImageBox = styled.div`
-  width: 100%;
-  height: 100px;
-  margin-top: 20px;
-  display: flex;
-  overflow: scroll;
-`
-const VisitpostImage = styled.div`
-  
-`
 const VisitPostFooter = styled.div`
   padding: 20px 35px;
   border-top: 1px solid var(--color-border);
@@ -256,6 +269,7 @@ const VisitPostFooter = styled.div`
 function Visit() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isMobile , setIsMobile] = useState(false)
   const [openDetail, setOpenDetail] = useState(false);
   const params = useParams();
   const navigate = useNavigate();
@@ -268,14 +282,15 @@ function Visit() {
     setLoading(false);
   }, [params.id]);
 
-  if (loading) {
-    return (
-      <VisitPostWrapper>
-        <Navbar />
-      </VisitPostWrapper>
-    );
-  }
+    useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      
+    };
 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   if (!post) {
     navigate("/");
     return null;
@@ -283,11 +298,13 @@ function Visit() {
 
   return (
     <VisitPostWrapper>
-       <NavbarWrapper>
-         <Navbar />
-       </NavbarWrapper>
+          {!isMobile ? <NavbarWrapper>
+            <Navbar />
+       </NavbarWrapper> : ''}
 
-      {/* ===== برادکام ===== */}
+      <VisitPostContentWrapper>
+        <VisitPostContentRightSection>
+
       <VisitPostContentbreadcrumbs>
         <VisitPostContentHeaderItem>
           {post.category} <ArrowBackIosIcon />
@@ -299,9 +316,6 @@ function Visit() {
           {post.title} <ArrowBackIosIcon />
         </VisitPostContentHeaderItem>
       </VisitPostContentbreadcrumbs>
-
-      <VisitPostContentWrapper>
-        <VisitPostContentRightSection>
           <PostTitle>{post.title}</PostTitle>
 
           <PostDateInformation onClick={() => setOpenDetail((prev) => !prev)}>
@@ -358,16 +372,21 @@ function Visit() {
               </PostTbody>
             </PostTable>
           </PostInformation>
+          <PostItems >
+            <PostItem> <PostItemTitle>وضعیت</PostItemTitle>  <PostItemValue>نو</PostItemValue></PostItem>
+            <PostItem> <PostItemTitle>متراژ</PostItemTitle>  <PostItemValue>425متر</PostItemValue></PostItem>
+            <PostItem> <PostItemTitle>سن بنا</PostItemTitle>  <PostItemValue>1385</PostItemValue></PostItem>
+            <PostItem> <PostItemTitle>قابل تهاتر</PostItemTitle>  <PostItemValue>هست</PostItemValue></PostItem>
+          </PostItems>
         </VisitPostContentRightSection>
-
+          
         <VisitPostContentLeftSection>
            <Slider images= {post.images} />
-          <VisitPostImageBox>
-             <VisitpostImage></VisitpostImage>
-          </VisitPostImageBox>
         </VisitPostContentLeftSection>
       </VisitPostContentWrapper>
-      <VisitPostFooter>فوتر</VisitPostFooter>
+      <VisitPostFooter>
+
+      </VisitPostFooter>
     </VisitPostWrapper>
   );
 }
