@@ -39,7 +39,7 @@ const VisitPostContentWrapper = styled.div`
 `;
 
 const VisitPostContentbreadcrumbs = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 20px;
