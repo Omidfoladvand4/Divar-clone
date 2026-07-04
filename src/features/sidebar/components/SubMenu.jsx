@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { categories } from "../services/menuData/menuIcons";
-import { items } from "../services/menuData/menuItems";
+import { categories } from "../../../data/menu/icons";
+import { items } from "../../../data/menu/items";
 import { useState } from "react";
 const SubMenuWrapper = styled.div`
     display: flex;

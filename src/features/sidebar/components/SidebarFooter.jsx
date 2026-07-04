@@ -2,9 +2,9 @@ import styled from "styled-components"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import casbvakar from '../../assets/footerImage/casbvakar.png';
-import download from '../../assets/footerImage/download.png';
-import enamadd from '../../assets/footerImage/enamad.png';
+import casbvakar from '../../../assets/footerImage/casbvakar.png';
+import download from '../../../assets/footerImage/download.png';
+import enamadd from '../../../assets/footerImage/enamad.png';
 
 const SidebarFooterWrapper = styled.div`
     

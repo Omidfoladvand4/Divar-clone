@@ -1,9 +1,9 @@
-import  { useEffect, useState } from "react";
+import  React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { useNavigate } from "react-router-dom";
-import { useCity } from "../context/Cities";
+import { useCity } from "../context/CityContext";
 import Overlay from "./Overlay";
 const LocationWrapper = styled.div`
   width: 600px;
@@ -352,4 +352,4 @@ const ChangeCityHandler = () => {
   );
 }
 
-export default LocationSelectorBox;
+export default React.memo(LocationSelectorBox) ;

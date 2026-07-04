@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import React from "react";
 const AdsGrid = styled.div`
   
   display: flex;
@@ -20,4 +20,4 @@ function Posts({children}) {
     )
 }
 
-export default Posts
+export default React.memo(Posts)

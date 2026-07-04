@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -164,4 +165,4 @@ function Post({ ad }) {
   );
 }
 
-export default Post;
+export default React.memo(Post);

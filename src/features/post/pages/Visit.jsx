@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import { adsData } from "../services/fakePosts";
+import { useEffect, useState , useMemo } from "react";
+import Navbar from "../../home/components/Navbar";
+import { adsData } from "../../../data/posts";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Slider from '../components/Slider'
@@ -317,71 +317,84 @@ const VisitPostFooter = styled.div`
   margin-top: 20px;
 `;
 
+
+
 function Visit() {
   const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [isMobile , setIsMobile] = useState(false)
   const [openDetail, setOpenDetail] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setLoading(true);
-    const postId = Number(params.id);
-    const foundPost = adsData.find((ad) => ad.id === postId);
-    setPost(foundPost || null);
-    setLoading(false);
-  }, [params.id]);
+  const postId = useMemo(() => Number(params.id), [params.id]);
 
-    useEffect(() => {
-    const handleResize = () => {
+  useEffect(() => {
+    const foundPost = adsData.find((ad) => ad.id === postId);
+
+    if (!foundPost) {
+      navigate("/", { replace: true });
+      return;
+    }
+
+    setPost(foundPost);
+  }, [postId, navigate]);
+
+  useEffect(() => {
+    const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
-      
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
   if (!post) {
-    navigate("/");
     return null;
   }
 
   return (
     <VisitPostWrapper>
-          {!isMobile ? <NavbarWrapper>
-            <Navbar />
-       </NavbarWrapper> : ''}
+      {!isMobile && (
+        <NavbarWrapper>
+          <Navbar />
+        </NavbarWrapper>
+      )}
 
       <VisitPostContentWrapper>
         <VisitPostContentRightSection>
+          <VisitPostContentbreadcrumbs>
+            <VisitPostContentHeaderItem>
+              {post.category} <ArrowBackIosIcon />
+            </VisitPostContentHeaderItem>
+            <VisitPostContentHeaderItem>
+              {post.subCategory} <ArrowBackIosIcon />
+            </VisitPostContentHeaderItem>
+            <VisitPostContentHeaderItem>
+              {post.title} <ArrowBackIosIcon />
+            </VisitPostContentHeaderItem>
+          </VisitPostContentbreadcrumbs>
 
-      <VisitPostContentbreadcrumbs>
-        <VisitPostContentHeaderItem>
-          {post.category} <ArrowBackIosIcon />
-        </VisitPostContentHeaderItem>
-        <VisitPostContentHeaderItem>
-          {post.subCategory} <ArrowBackIosIcon />
-        </VisitPostContentHeaderItem>
-        <VisitPostContentHeaderItem>
-          {post.title} <ArrowBackIosIcon />
-        </VisitPostContentHeaderItem>
-      </VisitPostContentbreadcrumbs>
           <PostTitle>{post.title}</PostTitle>
 
-          <PostDateInformation onClick={() => setOpenDetail((prev) => !prev)}>
+          <PostDateInformation onClick={() => setOpenDetail((p) => !p)}>
             {dayjs(post.date).fromNow()} در {post.city}
             <div
               style={{
                 transform: openDetail ? "rotate(180deg)" : "rotate(0deg)",
-                transition: "transform 0.3s ease",
-              }}>
+                transition: "0.3s ease",
+              }}
+            >
               <KeyboardArrowDownIcon />
             </div>
           </PostDateInformation>
 
           <PostDateInfomarionSumMenu $opened={openDetail}>
-            <div>انتشار آگهی: {dayjs(post.date).format("DD MMMM YYYY")}</div>
+            <div>
+              انتشار آگهی: {dayjs(post.date).format("DD MMMM YYYY")}
+            </div>
             <div>
               آخرین بروزرسانی: {dayjs(post.date).format("DD MMMM YYYY")}
             </div>
@@ -396,31 +409,35 @@ function Visit() {
 
           <PostInformation>
             <PostInformationHeader>
-               <UserInformation>
+              <UserInformation>
                 <UserInformationBtn>اطلاعات تماس</UserInformationBtn>
-                 <ChatUserBtn>چت</ChatUserBtn>
-               </UserInformation>
-               <PostInformationIcons>
-                 <PostInformationIcon>
-                <BookmarkBorderRoundedIcon />
-              </PostInformationIcon>
-              <PostInformationIcon>
-                <ShareRoundedIcon />
-              </PostInformationIcon>
-              <PostInformationBackIcon>
-                <ArrowBackIosIcon />
-              </PostInformationBackIcon>
-               </PostInformationIcons>
+                <ChatUserBtn>چت</ChatUserBtn>
+              </UserInformation>
+
+              <PostInformationIcons>
+                <PostInformationIcon>
+                  <BookmarkBorderRoundedIcon />
+                </PostInformationIcon>
+
+                <PostInformationIcon>
+                  <ShareRoundedIcon />
+                </PostInformationIcon>
+
+                <PostInformationBackIcon>
+                  <ArrowBackIosIcon />
+                </PostInformationBackIcon>
+              </PostInformationIcons>
             </PostInformationHeader>
 
             <PostTable>
               <PostThead>
                 <PostTr>
                   <PostTh>کارکرد</PostTh>
-                  <PostTh>مدل (سال تولید)</PostTh>
+                  <PostTh>مدل</PostTh>
                   <PostTh>رنگ</PostTh>
                 </PostTr>
               </PostThead>
+
               <PostTbody>
                 <PostTr>
                   <PostTd>کیلومتر</PostTd>
@@ -430,21 +447,36 @@ function Visit() {
               </PostTbody>
             </PostTable>
           </PostInformation>
-          <PostItems >
-            <PostItem> <PostItemTitle>وضعیت</PostItemTitle>  <PostItemValue>نو</PostItemValue></PostItem>
-            <PostItem> <PostItemTitle>متراژ</PostItemTitle>  <PostItemValue>425متر</PostItemValue></PostItem>
-            <PostItem> <PostItemTitle>سن بنا</PostItemTitle>  <PostItemValue>1385</PostItemValue></PostItem>
-            <PostItem> <PostItemTitle>قابل تهاتر</PostItemTitle>  <PostItemValue>هست</PostItemValue></PostItem>
+
+          <PostItems>
+            <PostItem>
+              <PostItemTitle>وضعیت</PostItemTitle>
+              <PostItemValue>نو</PostItemValue>
+            </PostItem>
+
+            <PostItem>
+              <PostItemTitle>متراژ</PostItemTitle>
+              <PostItemValue>425متر</PostItemValue>
+            </PostItem>
+
+            <PostItem>
+              <PostItemTitle>سن بنا</PostItemTitle>
+              <PostItemValue>1385</PostItemValue>
+            </PostItem>
+
+            <PostItem>
+              <PostItemTitle>قابل تهاتر</PostItemTitle>
+              <PostItemValue>هست</PostItemValue>
+            </PostItem>
           </PostItems>
         </VisitPostContentRightSection>
-          
+
         <VisitPostContentLeftSection>
-           <Slider images= {post.images} />
+          <Slider images={post.images} />
         </VisitPostContentLeftSection>
       </VisitPostContentWrapper>
-      <VisitPostFooter>
 
-      </VisitPostFooter>
+      <VisitPostFooter />
     </VisitPostWrapper>
   );
 }

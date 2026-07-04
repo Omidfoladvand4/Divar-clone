@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { categories } from "../services/menuData/menuIcons"
-import { useEffect, useState } from "react"
-import SidebarFooter from "./sidbar/SidebarFooter"
+import { categories } from "../../../data/menu/icons"
+import React , { useEffect, useState } from "react"
+import SidebarFooter from "./SidebarFooter"
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 const SidebarWrapper = styled.div`
     position: fixed;
@@ -316,4 +316,4 @@ function Sidebar({posts = [] , onFilterChange}) {
   )
 }
 
-export default Sidebar
+export default React.memo(Sidebar)

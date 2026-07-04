@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import  {categories} from "../services/menuData/menuIcons"
-import { useState } from "react"
-import { items } from "../services/menuData/menuItems"
+import  {categories} from "../../../data/menu/icons"
+import  { useState } from "react"
+import { items } from "../../../data/menu/items"
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';

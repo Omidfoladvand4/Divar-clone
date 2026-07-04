@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import React , { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import Sidebar from '../components/Sidebar';
-import { adsData } from '../services/fakePosts';
-import NoResult from '../components/posts/NoResult';
-import Posts from '../components/posts/Posts';
-import Post from '../components/posts/Post';
+import Sidebar from '../../sidebar/components/Sidebar';
+import { adsData } from '../../../data/posts';
+import NoResult from '../components/NoResult';
+import Posts from '../components/Posts';
+import Post from '../components/Post';
 import Navbar from '../components/Navbar';
-import MobileSubmenu from '../components/MobileSubmenu'
+import MobileSubmenu from '../../sidebar/mobile/MobileSubmenu'
 
 const HomeWrapper = styled.div`
   position: relative;
@@ -188,4 +188,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default React.memo(Home)

@@ -1,7 +1,7 @@
-import  { useState } from "react";
+import  React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { citiesData } from "../services/citiesData";
+import { citiesData } from "../../../data/cities";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -9,10 +9,10 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import SupportOutlinedIcon from "@mui/icons-material/SupportOutlined";
-import LocationSelectorBox from "./LocationSelectorBox";
-import MobileNavbar from "./MobileNavbar";
-import { useCity } from "../context/Cities";
-import SubMenu from "./SubMenu";
+import LocationSelectorBox from "../../location/components/LocationSelectorBox";
+import MobileNavbar from "../../home/components/MobileNavbar";
+import { useCity } from "../../location/context/CityContext";
+import SubMenu from "../../sidebar/components/SubMenu";
 const NavbarWrapper = styled.div`
   width: 100%;
   padding: 0 5%;
@@ -218,5 +218,5 @@ function Navbar() {
     </>
   );
 }
+export default React.memo(Navbar)
 
-export default Navbar;

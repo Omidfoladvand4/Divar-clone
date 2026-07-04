@@ -6,12 +6,13 @@ const Container = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  direction: rtl;
   padding: 20px;
   @media (max-width: 480px) {
     width: 100%;
     padding: 0;
   }
-`;
+  `;
 
 const SliderMainImage = styled.div`
  
